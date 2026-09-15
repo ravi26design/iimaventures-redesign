@@ -74,7 +74,32 @@
         <div class="home-section-head">
           <h2 class="display reveal-on-scroll">We back <span class="accent">category-defining</span> founders.</h2>
         </div>
-        <div class="logo-grid home-logo-grid" id="home-logo-grid"></div>
+        <div class="filters" id="filters">
+          <div class="filters-left">
+            <div class="filter" data-filter="theme">
+              <button type="button" class="filter-trigger" aria-haspopup="true" aria-expanded="false">
+                <span class="captions">Theme</span>
+                <svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+              </button>
+              <div class="filter-menu" role="group" aria-label="Filter by theme"></div>
+            </div>
+            <div class="filter" data-filter="industry">
+              <button type="button" class="filter-trigger" aria-haspopup="true" aria-expanded="false">
+                <span class="captions">Industry</span>
+                <svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+              </button>
+              <div class="filter-menu" role="group" aria-label="Filter by industry"></div>
+            </div>
+          </div>
+          <div class="filters-right">
+            <button type="button" class="filter-clear captions" id="filter-clear" hidden>Clear</button>
+            <p class="captions filter-count" id="filter-count" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="active-chips" id="active-chips"></div>
+
+        <div class="logo-grid" id="logo-grid"></div>
+        <p class="empty-state body" id="empty-state" hidden>No companies match those filters yet.</p>
       </div>
     </section>
 
@@ -244,6 +269,7 @@
   </footer>
 
   <script src="nav.js"></script>
+  <script src="script.js"></script>
   <script src="home.js"></script>
 </body>
 </html>

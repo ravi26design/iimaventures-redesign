@@ -102,7 +102,9 @@
 @media (min-width: 1024px) { .home-section-head { padding: 0 48px 36px; } }
 .home-section-head .display { max-width: 14ch; }
 
-.home-logo-grid { margin-top: 0; border-bottom: 1px solid var(--sage-200); }
+.home .logo-grid { margin-top: 0; border-bottom: 1px solid var(--sage-200); }
+.home .filters { border-top: 1px solid var(--sage-200); }
+.home .active-chips:not(:empty) { padding-bottom: 16px; }
 .grid-more {
   display: flex; align-items: center; justify-content: space-between;
   padding: 22px 24px;

@@ -211,6 +211,7 @@ clearBtn.addEventListener("click", () => {
 /* ---------- marquee ---------- */
 function buildMarquee() {
   const track = document.getElementById("marquee-track");
+  if (!track) return; /* home page has no marquee strip */
   const pick = COMPANIES.slice(0, 16);
   const html = pick.map(c => `<img src="${c.logo}" alt="" title="${c.name}">`).join("");
   track.innerHTML = html + html; /* duplicated for a seamless loop */

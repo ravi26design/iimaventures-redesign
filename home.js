@@ -1,24 +1,6 @@
 /* IIMA Ventures — Home page behaviour */
 
 /* ---------- data ---------- */
-const HOME_LOGOS = [
-  { name: "Agnikul Cosmos",     url: "https://agnikul.in",        logo: "assets/logos/agnikul.png", scale: 1.3 },
-  { name: "Tookitaki",          url: "https://tookitaki.ai",      logo: "assets/logos/tookitaki.png", scale: 1.1 },
-  { name: "5C Network",         url: "https://5cnetwork.com",     logo: "assets/logos/5c-network.png", scale: 0.9 },
-  { name: "GUVI",               url: "https://guvi.in",           logo: "assets/logos/guvi.png", scale: 1.15 },
-  { name: "Kaleidofin",         url: "https://kaleidofin.com",    logo: "assets/logos/kaleidofin.png", scale: 1.1 },
-  { name: "The E-Plane Company", url: "https://eplane.ai",         logo: "assets/logos/eplane.png", scale: 1.15 },
-  { name: "Unbox Robotics",     url: "https://unboxrobotics.com", logo: "assets/logos/unbox.png", scale: 1.25 },
-  { name: "Riskcovry",          url: "https://riskcovry.com",     logo: "assets/logos/riskcovry.svg", scale: 1.1 },
-  { name: "Chara",              url: "https://chara.co.in",       logo: "assets/logos/chara.svg", scale: 1.1 },
-  { name: "Galaxeye",           url: "https://galaxeye.space",    logo: "assets/logos/galaxeye.svg", scale: 1.1 },
-  { name: "Xaults",             url: "https://xaults.com",        logo: "assets/logos/xaults.png", scale: 0.95 },
-  { name: "Navanc",             url: "https://navanc.com",        logo: "assets/logos/navanc.png", scale: 0.95 },
-  { name: "Piersight",          url: "https://piersight.space",   logo: "assets/logos/piersight.svg", scale: 1.1 },
-  { name: "Zeny",               url: "https://zeny.co.in",        logo: "assets/logos/zeny.svg", scale: 0.95 },
-  { name: "Entitled",           url: "https://entitled.co.in",    logo: "assets/logos/entitled.svg", scale: 1.05 },
-];
-
 const STORIES = [
   { name: "Agnikul Cosmos", logo: "assets/logos/agnikul.png", scale: 1.3, url: "https://agnikul.in", image: "assets/img/home-1.jpg",
     text: "A pioneer in India’s private space sector, building the world’s largest single-piece 3D-printed rocket engine.",
@@ -58,26 +40,6 @@ const TIMELINE = [
   ["2025", "IIMA Ventures in Dubai"],
   ["2026", "Launched AI Residency Program"],
 ];
-
-/* ---------- logo grid ---------- */
-(function buildLogoGrid() {
-  const grid = document.getElementById("home-logo-grid");
-  HOME_LOGOS.forEach((c, i) => {
-    const a = document.createElement("a");
-    a.className = "logo-cell";
-    a.href = c.url;
-    a.target = "_blank";
-    a.rel = "noopener";
-    a.setAttribute("aria-label", `${c.name} (opens in a new tab)`);
-    a.style.setProperty("--delay", `${(i % 5) * 60 + Math.floor(i / 5) * 90}ms`);
-    a.style.setProperty("--s", c.scale || 1);
-    a.innerHTML = `
-      <img src="${c.logo}" alt="${c.name}" loading="lazy" decoding="async">
-      <span class="name" aria-hidden="true">${c.name}</span>
-      <span class="line" aria-hidden="true"></span>`;
-    grid.appendChild(a);
-  });
-})();
 
 /* ---------- stories carousel ---------- */
 (function buildStories() {
@@ -187,7 +149,7 @@ const TIMELINE = [
 
 /* ---------- scroll reveals ---------- */
 (function reveals() {
-  const targets = document.querySelectorAll(".reveal-on-scroll, .builders-lines, .quote-lines, .logo-cell");
+  const targets = document.querySelectorAll(".reveal-on-scroll, .builders-lines, .quote-lines");
   const io = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -201,9 +163,6 @@ const TIMELINE = [
   setTimeout(() => {
     document.querySelectorAll(".reveal-on-scroll:not(.is-inview)").forEach(el => {
       if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("is-inview");
-    });
-    document.querySelectorAll(".logo-cell:not(.is-visible)").forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("is-visible");
     });
   }, 1500);
 
