@@ -19,28 +19,6 @@ const STORIES = [
     meta: ["Deep tech", "Aerospace & defence", "Mumbai"] },
 ];
 
-const TIMELINE = [
-  ["2002", "Innovation Centre at IIMA set up", true],
-  ["2008", "Stay Hungry Stay Foolish published"],
-  ["2009", "Pioneering acceleration in India: iAccelerator"],
-  ["2010", "India’s largest B-plan contest: The Power of Ideas"],
-  ["2011", "India’s first climate accelerator: Powerstart"],
-  ["2012", "Incubated India’s first energy VC: Infuse Ventures"],
-  ["2013", "Incubating incubators"],
-  ["2014", "Foray into regional incubation: Startup Oasis, Rajasthan"],
-  ["2015", "India’s first food & agri-business accelerator launched"],
-  ["2016", "India’s first healthcare accelerator launched"],
-  ["2017", "India Innovation Growth Program launched"],
-  ["2018", "Bharat Inclusion Initiative & incubated Bharat Fund platform"],
-  ["2019", "Recognised as Centre of Excellence by DST, Government of India", true],
-  ["2021", "Expanded regional incubation: Assam & Madhya Pradesh"],
-  ["2022", "Startup Compass published"],
-  ["2023", "Deeptech Accelerator Fund launched"],
-  ["2024", "IIMA-CIIE rebranded to IIMA Ventures", true],
-  ["2025", "IIMA Ventures in Dubai"],
-  ["2026", "Launched AI Residency Program"],
-];
-
 /* ---------- stories carousel ---------- */
 (function buildStories() {
   const track = document.getElementById("stories-track");
@@ -120,31 +98,6 @@ const TIMELINE = [
 
   go(0);
   restart();
-})();
-
-/* ---------- timeline ---------- */
-(function buildTimeline() {
-  const track = document.getElementById("timeline-track");
-  TIMELINE.forEach(([year, text, marker]) => {
-    const li = document.createElement("li");
-    li.className = "timeline-item" + (marker ? " is-marker" : "");
-    li.innerHTML = `<span class="timeline-year">${year}</span><p class="body">${text}</p>`;
-    track.appendChild(li);
-  });
-
-  const scroller = document.getElementById("timeline");
-  let down = false, startX = 0, startLeft = 0;
-  scroller.addEventListener("pointerdown", e => {
-    down = true; startX = e.clientX; startLeft = scroller.scrollLeft;
-    scroller.classList.add("is-dragging");
-  });
-  scroller.addEventListener("pointermove", e => {
-    if (!down) return;
-    scroller.scrollLeft = startLeft - (e.clientX - startX);
-  });
-  ["pointerup", "pointercancel", "pointerleave"].forEach(ev => scroller.addEventListener(ev, () => {
-    down = false; scroller.classList.remove("is-dragging");
-  }));
 })();
 
 /* ---------- scroll reveals ---------- */

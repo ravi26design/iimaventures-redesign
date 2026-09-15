@@ -455,11 +455,35 @@
 .offerings .reveal-on-scroll:nth-child(4) { transition-delay: .24s; }
 .builders-photos .reveal-on-scroll:nth-child(2) { transition-delay: .12s; }
 
-.home .site-footer { margin-top: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   .home-hero-media { animation: none; opacity: 1; --p: 1; }
   .reveal-on-scroll { opacity: 1; transform: none; transition: none; }
   .draw { stroke-dashoffset: 0 !important; animation: none !important; }
   .stories-track { transition: none; }
+}
+
+/* ---------------- Small-screen refinements (home) ---------------- */
+@media (max-width: 1023px) {
+  .stories-controls { position: static; justify-content: flex-end; padding: 0 24px 28px; }
+  .story-body { padding-bottom: 24px; }
+  .story-media { height: clamp(260px, 60vw, 560px); }
+}
+@media (max-width: 767px) {
+  .home-hero-title { font-size: 44px; }
+  .home-hero-desc { font-size: 18px; max-width: 26ch; }
+  .home-hero-desc br { display: none; }
+  .home-hero-media { margin: 0 12px; }
+  .story-text { font-size: 24px; }
+  .story-logo { height: 48px; }
+  .story-logo img { max-height: 34px; max-width: 180px; }
+  .builders-copy p { font-size: 17px; }
+  .timeline-track { grid-auto-columns: 210px; }
+  .timeline-year { font-size: 36px; }
+  .theme-card { min-height: 0; padding: 24px 20px 28px; }
+  .theme-title { font-size: 28px; }
+  .offering { padding: 20px 20px 24px; }
+  .offering-title { font-size: 24px; }
+  .quote p { font-size: 28px; }
+  .home-quote .hero-frame { padding: 56px 20px 64px; }
 }
