@@ -71,13 +71,12 @@
 
 /* Big media block: starts inset, expands to full width as the user scrolls (Greylock hero) */
 .home-hero-media {
-  --p: 0;                       /* 0 = small, 1 = full width; set by home.js on scroll */
   position: relative;
   margin: 0 16px;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--charcoal);
-  clip-path: inset(0 calc(9% * (1 - var(--p))) round 2px);
+  clip-path: inset(0 9% round 2px); /* resting state; home.js animates this on scroll */
   opacity: 0;
   animation: media-in 1s var(--ease) .4s forwards;
   will-change: clip-path;
@@ -85,7 +84,7 @@
 .home-hero-media img {
   width: 100%; height: 100%;
   object-fit: cover;
-  transform: scale(calc(1.1 - .1 * var(--p)));
+  transform: scale(1.1);
   will-change: transform;
 }
 .home-hero-media-caption {
@@ -457,7 +456,7 @@
 
 
 @media (prefers-reduced-motion: reduce) {
-  .home-hero-media { animation: none; opacity: 1; --p: 1; }
+  .home-hero-media { animation: none; opacity: 1; clip-path: none; }
   .reveal-on-scroll { opacity: 1; transform: none; transition: none; }
   .draw { stroke-dashoffset: 0 !important; animation: none !important; }
   .stories-track { transition: none; }

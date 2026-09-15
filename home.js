@@ -119,24 +119,34 @@ const STORIES = [
     });
   }, 1500);
 
-  /* hero media: grows from ~68% to 100% width over the first stretch of scrolling */
+  /* hero media: grows from ~82% to 100% width over the first stretch of scrolling.
+     Styles are written inline (not via a CSS variable) so every browser repaints reliably. */
   const media = document.getElementById("hero-media");
+  const mediaImg = media ? media.querySelector("img") : null;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let ticking = false;
+  const INSET = 9;   /* % clipped from each side at the top of the page */
+  const ZOOM = 0.1;  /* extra image scale at the top of the page */
+  let lastP = -1;
+  const applyMedia = p => {
+    if (p === lastP) return;
+    lastP = p;
+    media.style.clipPath = `inset(0 ${(INSET * (1 - p)).toFixed(2)}% round 2px)`;
+    media.style.webkitClipPath = media.style.clipPath;
+    if (mediaImg) mediaImg.style.transform = `scale(${(1 + ZOOM * (1 - p)).toFixed(4)})`;
+  };
   const updateMedia = () => {
-    ticking = false;
-    if (reduce) { media.style.setProperty("--p", 1); return; }
-    /* 0 at the top of the page, 1 once the block has scrolled up to sit just under the header */
+    if (!media) return;
+    if (reduce) { applyMedia(1); return; }
     const header = document.getElementById("site-header");
     const headerH = header ? header.getBoundingClientRect().height : 0;
     const offsetTop = media.getBoundingClientRect().top + window.scrollY;
     const travel = Math.max(120, offsetTop - headerH - 24);
     const p = Math.min(1, Math.max(0, window.scrollY / travel));
-    media.style.setProperty("--p", p.toFixed(3));
+    applyMedia(Math.round(p * 1000) / 1000);
   };
-  const onScrollMedia = () => { if (!ticking) { ticking = true; requestAnimationFrame(updateMedia); } };
-  window.addEventListener("scroll", onScrollMedia, { passive: true });
-  window.addEventListener("resize", onScrollMedia);
+  window.addEventListener("scroll", updateMedia, { passive: true });
+  window.addEventListener("resize", updateMedia);
+  window.addEventListener("load", updateMedia);
   updateMedia();
 })();
 
