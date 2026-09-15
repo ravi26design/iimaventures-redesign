@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio | IIMA Ventures</title>
+  <meta name="description" content="IIMA Ventures backs founders building category-defining companies across digital acceleration, inclusion, climate, AI and deep tech.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#portfolio">Skip to main content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="IIMA Ventures home">
+        <img src="assets/iima-ventures-logo.png" alt="IIMA Ventures" width="126" height="60">
+        <span class="brand-sub">Formerly IIMA-CIIE</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link" href="https://iimaventures.com/">About Us<svg class="caret" width="12" height="12" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg></a>
+            <button type="button" class="dropdown-toggle" aria-expanded="false" aria-label="Open About Us menu"></button>
+            <ul class="dropdown-menu"><li><a href="https://iimaventures.com/team" target=_blank rel=noopener>Team</a></li><li><a href="https://iimaventures.com/careers-culture" target=_blank rel=noopener>Careers &amp; Culture</a></li><li><a href="https://iimaventures.com/partners" target=_blank rel=noopener>Partners</a></li><li><a href="https://iimaventures.com/newsroom" target=_blank rel=noopener>Newsroom</a></li><li><a href="https://iimaventures.com/contact" target=_blank rel=noopener>Contact Us</a></li></ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link" href="https://iimaventures.com/incubation">Incubation<svg class="caret" width="12" height="12" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg></a>
+            <button type="button" class="dropdown-toggle" aria-expanded="false" aria-label="Open Incubation menu"></button>
+            <ul class="dropdown-menu"><li><a href="https://www.ahmedabad.iimaventures.com/" target=_blank rel=noopener>Ahmedabad</a></li></ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a class="nav-link" href="https://iimaventures.com/current-programs">Programs<svg class="caret" width="12" height="12" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg></a>
+            <button type="button" class="dropdown-toggle" aria-expanded="false" aria-label="Open Programs menu"></button>
+            <ul class="dropdown-menu"><li><a href="https://iimaventures.com/current-programs" target=_blank rel=noopener>Current Programs</a></li><li><a href="https://iimaventures.com/past-programs" target=_blank rel=noopener>Past Programs</a></li></ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="https://iimaventures.com/investment">Investment</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://insights.iimaventures.com/" target="_blank" rel="noopener">Insights</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html" aria-current="page">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://iimaventures.com/events">Events</a></li>
+          <li class="nav-item nav-cta"><a class="btn-support" href="https://go.iimaventures.com/WebsiteForm" target="_blank" rel="noopener">Get Support</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="portfolio">
+    <section class="hero" aria-label="Portfolio">
+      <div class="container hero-frame">
+        <div class="hero-grid">
+          <p class="captions hero-eyebrow reveal">Portfolio</p>
+          <h1 class="hero-title reveal">We back founders building what India needs next.</h1>
+        </div>
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track" id="marquee-track"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="companies" aria-label="Portfolio companies">
+      <div class="container companies-frame">
+        <div class="filters" id="filters">
+          <div class="filters-left">
+            <div class="filter" data-filter="theme">
+              <button type="button" class="filter-trigger" aria-haspopup="true" aria-expanded="false">
+                <span class="captions">Theme</span>
+                <svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+              </button>
+              <div class="filter-menu" role="group" aria-label="Filter by theme"></div>
+            </div>
+            <div class="filter" data-filter="industry">
+              <button type="button" class="filter-trigger" aria-haspopup="true" aria-expanded="false">
+                <span class="captions">Industry</span>
+                <svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+              </button>
+              <div class="filter-menu" role="group" aria-label="Filter by industry"></div>
+            </div>
+          </div>
+          <div class="filters-right">
+            <button type="button" class="filter-clear captions" id="filter-clear" hidden>Clear</button>
+            <p class="captions filter-count" id="filter-count" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="active-chips" id="active-chips"></div>
+
+        <div class="logo-grid" id="logo-grid"></div>
+        <p class="empty-state body" id="empty-state" hidden>No companies match those filters yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <div class="footer-cta">
+          <h2 class="footer-heading">Building something bold?</h2>
+          <p class="body footer-copy">We partner early with founders solving hard problems for India and the world.</p>
+          <a class="footer-button captions" href="https://iimaventures.com/programs/">Explore programs</a>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <p class="captions footer-label">Company</p>
+            <a href="https://iimaventures.com/team/">Team</a>
+            <a href="https://iimaventures.com/programs/">Programs</a>
+            <a href="https://iimaventures.com/newsroom/">Newsroom</a>
+            <a href="https://iimaventures.com/contact/">Contact us</a>
+          </div>
+          <div>
+            <p class="captions footer-label">Insights</p>
+            <a href="https://www.insights.iimaventures.com/" target="_blank" rel="noopener">Insights hub</a>
+            <a href="portfolio.html">Portfolio</a>
+          </div>
+          <div>
+            <p class="captions footer-label">Connect</p>
+            <a href="https://www.linkedin.com/company/iimaventures/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://twitter.com/IIMAVentures" target="_blank" rel="noopener">X</a>
+            <a href="https://www.youtube.com/@IIMAVentures" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="captions">© <span id="year"></span> IIMA Ventures</p>
+        <a class="captions" href="https://iimaventures.com/privacy-policy/">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
