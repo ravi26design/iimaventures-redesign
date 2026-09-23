@@ -2,19 +2,19 @@
 
 /* ---------- data ---------- */
 const STORIES = [
-  { name: "Agnikul Cosmos", logo: "assets/logos/agnikul.png", scale: 1.3, url: "https://agnikul.in", image: "assets/img/home-1.jpg",
+  { name: "Agnikul Cosmos", logo: "assets/logos/agnikul.png", url: "https://agnikul.in", image: "assets/img/home-1.jpg",
     text: "A pioneer in India’s private space sector, building the world’s largest single-piece 3D-printed rocket engine.",
     meta: ["Deep tech", "Space tech", "Chennai"] },
-  { name: "Tookitaki", logo: "assets/logos/tookitaki.png", scale: 1.1, url: "https://tookitaki.ai", image: "assets/img/home-2.jpg",
+  { name: "Tookitaki", logo: "assets/logos/tookitaki.png", url: "https://tookitaki.ai", image: "assets/img/home-2.jpg",
     text: "The world’s leading anti-financial-crime platform for fintechs and banks.",
     meta: ["AI portfolio", "Fintech", "Singapore · Bengaluru"] },
-  { name: "5C Network", logo: "assets/logos/5c-network.png", scale: 0.9, url: "https://5cnetwork.com", image: "assets/img/home-4.jpg",
+  { name: "5C Network", logo: "assets/logos/5c-network.png", url: "https://5cnetwork.com", image: "assets/img/home-4.jpg",
     text: "India’s largest and most trusted AI-assisted radiology interpretation platform.",
     meta: ["AI portfolio", "Healthcare", "Bengaluru"] },
-  { name: "GUVI", logo: "assets/logos/guvi.png", scale: 1.15, url: "https://guvi.in", image: "assets/img/home-3.jpg",
+  { name: "GUVI", logo: "assets/logos/guvi.png", url: "https://guvi.in", image: "assets/img/home-3.jpg",
     text: "India’s first skilling platform for technology education in multiple Indian languages.",
     meta: ["Digital acceleration", "Skilling & livelihood", "Chennai"] },
-  { name: "Sagar Defence", logo: "assets/logos/sagar-defence.png", scale: 0.85, url: "https://sagardefence.com", image: "assets/img/home-1.jpg",
+  { name: "Sagar Defence", logo: "assets/logos/sagar-defence.png", url: "https://sagardefence.com", image: "assets/img/home-1.jpg",
     text: "Advancing India’s maritime security through autonomous technology innovations.",
     meta: ["Deep tech", "Aerospace & defence", "Mumbai"] },
 ];
@@ -65,7 +65,7 @@ const STORIES = [
   function restart() {
     clearInterval(timer);
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    timer = setInterval(() => go(index + 1), 5000); /* auto-advance every 5s */
+    timer = setInterval(() => go(index + 1), 2000); /* auto-advance every 2s */
   }
 
   document.getElementById("stories-prev").addEventListener("click", () => { go(index - 1); restart(); });

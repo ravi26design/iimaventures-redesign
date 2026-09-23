@@ -402,17 +402,23 @@ ul { list-style: none; margin: 0; padding: 0; }
 @media (min-width: 1024px) { .logo-cell { min-height: 128px; } }
 .logo-cell:hover, .logo-cell:focus-visible { background: var(--paper-200); outline: none; }
 
-/* every logo sits in the same 32px-tall / 60%-wide box for consistent sizing */
+/* Every logo sits in the same 22px/32px-tall box for consistent sizing.
+   Both dimensions are `max-*` (upper bounds only) so the browser shrinks
+   each logo proportionally to fit inside the box from its own intrinsic
+   size — this only works if every asset actually HAS a large-enough
+   intrinsic size to shrink from (see assets/logos/*.svg: viewBox only,
+   no tiny fixed width/height, so they fall back to a large default and
+   scale down exactly like the PNGs do). */
 .logo-cell img {
   max-height: calc(22px * var(--s, 1));
   width: auto;
-  max-width: calc(62% * var(--s, 1));
+  max-width: calc(72% * var(--s, 1));
   object-fit: contain;
   filter: grayscale(1) contrast(1.05);
   opacity: .88;
   transition: filter .35s var(--ease), opacity .35s var(--ease), transform .35s var(--ease);
 }
-@media (min-width: 1024px) { .logo-cell img { max-height: calc(32px * var(--s, 1)); max-width: calc(60% * var(--s, 1)); } }
+@media (min-width: 1024px) { .logo-cell img { max-height: calc(32px * var(--s, 1)); max-width: calc(76% * var(--s, 1)); } }
 .logo-cell:hover img, .logo-cell:focus-visible img { filter: none; opacity: 1; transform: translateY(-2px); }
 
 /* red line on hover — same construction as greylock's cobalt bar */
