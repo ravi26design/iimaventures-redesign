@@ -142,7 +142,7 @@
 
 #logo-grid.logo-grid { background: var(--sage-200); }
 #logo-grid .logo-cell { background: #fff; }
-#logo-grid .logo-cell:hover, #logo-grid .logo-cell:focus-visible { background: var(--paper-200); }
+#logo-grid .logo-cell:hover, #logo-grid .logo-cell:focus-visible { background: #fff; }
 .logo-filler { background: #fff; }
 
 /* A handful of real portfolio entries have no working link on the live
