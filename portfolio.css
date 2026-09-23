@@ -5,6 +5,14 @@
    (same visual pattern) rather than shared, so this file stays fully
    independent — editing it can never change the home page's carousel. */
 
+/* Top-nav tabs other than Portfolio itself are inert on this page (per
+   feedback) — no href, so they can't navigate away to the real site. */
+.nav-link[aria-disabled="true"], .btn-support[aria-disabled="true"] {
+  cursor: default;
+}
+.nav-link[aria-disabled="true"]:hover { color: inherit; }
+.btn-support[aria-disabled="true"]:hover { background: var(--red); transform: none; }
+
 .hero--stories { padding-top: 0; }
 .hero--stories .hero-frame { border-top: 0; }
 
