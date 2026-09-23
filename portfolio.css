@@ -101,6 +101,7 @@
 .stories-arrow:hover { border-color: var(--red); color: var(--red); }
 
 /* ---------------- Category tabs (no "All"; first tab selected by default) */
+.companies-frame { background: #fff; }
 .filters-row {
   display: flex;
   flex-wrap: nowrap;
