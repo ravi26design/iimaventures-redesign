@@ -116,17 +116,19 @@ const STORIES = [
   viewport.addEventListener("mouseenter", pause);
   viewport.addEventListener("mouseleave", restart);
 
-  /* mouse-wheel / trackpad scroll while hovering the section advances slides
-     instead of scrolling the page — one slide per gesture, with a short
-     cooldown so a single trackpad swipe doesn't skip several slides at once */
+  /* a horizontal scroll gesture (trackpad swipe, shift+wheel) while hovering
+     the section advances slides, with a cooldown so one swipe doesn't skip
+     several slides at once. A normal *vertical* wheel/scroll — an ordinary
+     mouse wheel or a plain trackpad scroll — is left completely alone so
+     the page always keeps scrolling normally under the cursor. */
   let wheelLocked = false;
   viewport.addEventListener("wheel", e => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; /* vertical: let the page scroll */
     e.preventDefault();
     if (wheelLocked) return;
-    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-    if (Math.abs(delta) < 8) return;
+    if (Math.abs(e.deltaX) < 8) return;
     wheelLocked = true;
-    go(index + (delta > 0 ? 1 : -1));
+    go(index + (e.deltaX > 0 ? 1 : -1));
     restart();
     setTimeout(() => { wheelLocked = false; }, 3000);
   }, { passive: false });
