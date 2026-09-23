@@ -211,3 +211,9 @@
   go(0);
   restart();
 })();
+
+/* ---------- footer year ---------- */
+(function footerYear() {
+  const el = document.getElementById("year");
+  if (el) el.textContent = new Date().getFullYear();
+})();
