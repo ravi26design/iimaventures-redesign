@@ -4,7 +4,7 @@
 /* Bump this whenever a logo file under assets/logos/ is edited in place (recropped,
    recoloured, SVG attributes changed, etc.) so browsers that already cached the old
    bytes at this URL fetch the new version instead of reusing a stale image. */
-const ASSET_VERSION = "2026-09-23-logos-7";
+const ASSET_VERSION = "2026-09-23-logos-8";
 const withVersion = src => `${src}?v=${ASSET_VERSION}`;
 
 const COMPANIES = [
@@ -20,9 +20,9 @@ const COMPANIES = [
   { name: "Tookitaki",           url: "https://tookitaki.ai",           logo: "assets/logos/tookitaki.png", scale: 1.02,        theme: ["AI Portfolio"],                        industry: ["Fintech"] },
   { name: "Chara",               url: "https://chara.co.in",            logo: "assets/logos/chara.svg", scale: 1.01,            theme: ["Climate & Sustainability"],            industry: ["Mobility"] },
   { name: "The E-Plane Company",  url: "https://eplane.ai",              logo: "assets/logos/eplane.png", scale: 1.15,           theme: ["Deep Tech"],                           industry: ["Aerospace & Defense"] },
-  { name: "Unbox Robotics",      url: "https://unboxrobotics.com",      logo: "assets/logos/unbox.png", scale: 1.08,            theme: ["AI Portfolio", "Deep Tech"],           industry: ["Robotics"] },
+  { name: "Unbox Robotics",      url: "https://unboxrobotics.com",      logo: "assets/logos/unbox.png", scale: 1.22,            theme: ["AI Portfolio", "Deep Tech"],           industry: ["Robotics"] },
   { name: "GUVI",                url: "https://guvi.in",                logo: "assets/logos/guvi.png", scale: 1.15,             theme: ["Digital Acceleration"],                industry: ["Skilling & Livelihood"] },
-  { name: "Mimo Technologies",   url: "https://mimo-technologies.com",  logo: "assets/logos/mimo.png", scale: 0.83,             theme: ["Digital Acceleration"],                industry: ["Skilling & Livelihood"] },
+  { name: "Mimo Technologies",   url: "https://mimo-technologies.com",  logo: "assets/logos/mimo.png", scale: 0.71,             theme: ["Digital Acceleration"],                industry: ["Skilling & Livelihood"] },
   { name: "Riskcovry",           url: "https://riskcovry.com",          logo: "assets/logos/riskcovry.svg", scale: 0.89,        theme: ["Digital Acceleration"],                industry: ["Fintech"] },
   { name: "Kosh",                url: "https://getkosh.com",            logo: "assets/logos/kosh.png", scale: 0.98,             theme: ["Digital Acceleration"],                industry: ["Fintech"] },
   { name: "Entitled",            url: "https://entitled.co.in",         logo: "assets/logos/entitled.svg", scale: 0.93,         theme: ["Digital Acceleration"],                industry: ["Fintech"] },
