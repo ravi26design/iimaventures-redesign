@@ -4,7 +4,7 @@
 /* Bump this whenever a logo file under assets/logos/ is edited in place (recropped,
    recoloured, SVG attributes changed, etc.) so browsers that already cached the old
    bytes at this URL fetch the new version instead of reusing a stale image. */
-const ASSET_VERSION = "2026-09-23-logos-3";
+const ASSET_VERSION = "2026-09-23-logos-4";
 const withVersion = src => `${src}?v=${ASSET_VERSION}`;
 
 const COMPANIES = [
@@ -15,7 +15,7 @@ const COMPANIES = [
   { name: "NPrep",               url: "https://nprep.in",               logo: "assets/logos/nprep.png", scale: 1.0,            theme: ["Digital Acceleration"],                industry: ["Skilling & Livelihood"] },
   { name: "SarvDhan",            url: "https://sarvdhan.com",           logo: "assets/logos/sarvdhan.png", scale: 1.06,         theme: ["Digital Acceleration"],                industry: ["Fintech"] },
   { name: "Kaleidofin",          url: "https://kaleidofin.com",         logo: "assets/logos/kaleidofin.png", scale: 0.85,       theme: ["Digital Acceleration"],                industry: ["Fintech"] },
-  { name: "Navanc",              url: "https://navanc.com",             logo: "assets/logos/navanc.png", scale: 0.86,           theme: ["Digital Acceleration", "AI Portfolio"], industry: ["Fintech"] },
+  { name: "Navanc",              url: "https://navanc.com",             logo: "assets/logos/navanc.png", scale: 0.74,           theme: ["Digital Acceleration", "AI Portfolio"], industry: ["Fintech"] },
   { name: "Finarkein",           url: "https://finarkein.com",          logo: "assets/logos/finarkein.svg", scale: 1.23,        theme: ["Digital Acceleration"],                industry: ["Digital Infrastructure"] },
   { name: "Tookitaki",           url: "https://tookitaki.ai",           logo: "assets/logos/tookitaki.png", scale: 1.02,        theme: ["AI Portfolio"],                        industry: ["Fintech"] },
   { name: "Chara",               url: "https://chara.co.in",            logo: "assets/logos/chara.svg", scale: 1.01,            theme: ["Climate & Sustainability"],            industry: ["Mobility"] },
@@ -28,7 +28,7 @@ const COMPANIES = [
   { name: "Entitled",            url: "https://entitled.co.in",         logo: "assets/logos/entitled.svg", scale: 0.93,         theme: ["Digital Acceleration"],                industry: ["Fintech"] },
   { name: "Frontier Markets",    url: "https://frontiermkts.com",       logo: "assets/logos/frontier-markets.png", scale: 1.21, theme: ["Digital Acceleration"],                industry: ["Skilling & Livelihood"] },
   { name: "5C Network",          url: "https://5cnetwork.com",          logo: "assets/logos/5c-network.png", scale: 1.04,       theme: ["AI Portfolio", "Deep Tech"],           industry: ["Healthcare", "AI"] },
-  { name: "Agnikul Cosmos",      url: "https://agnikul.in",             logo: "assets/logos/agnikul.png", scale: 1.2,          theme: ["Deep Tech"],                           industry: ["Space Tech"] },
+  { name: "Agnikul Cosmos",      url: "https://agnikul.in",             logo: "assets/logos/agnikul.png", scale: 1.02,          theme: ["Deep Tech"],                           industry: ["Space Tech"] },
   { name: "Piersight",           url: "https://piersight.space",        logo: "assets/logos/piersight.svg", scale: 0.93,        theme: ["Deep Tech"],                           industry: ["Space Tech"] },
   { name: "Galaxeye",            url: "https://galaxeye.space",         logo: "assets/logos/galaxeye.svg", scale: 1.0,         theme: ["Deep Tech"],                           industry: ["Space Tech"] },
   { name: "Sagar Defence",       url: "https://sagardefence.com",       logo: "assets/logos/sagar-defence.png", scale: 0.84,    theme: ["Deep Tech"],                           industry: ["Aerospace & Defense"] },
