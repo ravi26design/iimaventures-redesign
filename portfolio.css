@@ -5,10 +5,8 @@
    (same visual pattern) rather than shared, so this file stays fully
    independent — editing it can never change the home page's carousel. */
 
-.hero--stories { padding-top: 40px; }
+.hero--stories { padding-top: 0; }
 .hero--stories .hero-frame { border-top: 0; }
-.hero-stories-eyebrow { padding: 0 16px; margin-bottom: 20px; color: var(--charcoal-500); }
-@media (min-width: 1024px) { .hero-stories-eyebrow { padding: 0 24px; } }
 
 /* ---------------- Founder-stories carousel (same pattern as the home page) */
 .stories-frame {
