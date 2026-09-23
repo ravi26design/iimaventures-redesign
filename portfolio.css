@@ -108,6 +108,7 @@
   justify-content: space-between;
   gap: 16px;
   padding: 0 12px;
+  background: #fff;
   border-bottom: 1px solid var(--sage-200);
 }
 .filters-row .filter-count { align-self: flex-end; margin-bottom: 10px; }
