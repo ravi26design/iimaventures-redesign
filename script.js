@@ -4,7 +4,7 @@
 /* Bump this whenever a logo file under assets/logos/ is edited in place (recropped,
    recoloured, SVG attributes changed, etc.) so browsers that already cached the old
    bytes at this URL fetch the new version instead of reusing a stale image. */
-const ASSET_VERSION = "2026-09-23-logos-6";
+const ASSET_VERSION = "2026-09-23-logos-7";
 const withVersion = src => `${src}?v=${ASSET_VERSION}`;
 
 const COMPANIES = [
@@ -23,12 +23,12 @@ const COMPANIES = [
   { name: "Unbox Robotics",      url: "https://unboxrobotics.com",      logo: "assets/logos/unbox.png", scale: 1.08,            theme: ["AI Portfolio", "Deep Tech"],           industry: ["Robotics"] },
   { name: "GUVI",                url: "https://guvi.in",                logo: "assets/logos/guvi.png", scale: 1.15,             theme: ["Digital Acceleration"],                industry: ["Skilling & Livelihood"] },
   { name: "Mimo Technologies",   url: "https://mimo-technologies.com",  logo: "assets/logos/mimo.png", scale: 0.83,             theme: ["Digital Acceleration"],                industry: ["Skilling & Livelihood"] },
-  { name: "Riskcovry",           url: "https://riskcovry.com",          logo: "assets/logos/riskcovry.svg", scale: 1.05,        theme: ["Digital Acceleration"],                industry: ["Fintech"] },
+  { name: "Riskcovry",           url: "https://riskcovry.com",          logo: "assets/logos/riskcovry.svg", scale: 0.89,        theme: ["Digital Acceleration"],                industry: ["Fintech"] },
   { name: "Kosh",                url: "https://getkosh.com",            logo: "assets/logos/kosh.png", scale: 0.98,             theme: ["Digital Acceleration"],                industry: ["Fintech"] },
   { name: "Entitled",            url: "https://entitled.co.in",         logo: "assets/logos/entitled.svg", scale: 0.93,         theme: ["Digital Acceleration"],                industry: ["Fintech"] },
   { name: "Frontier Markets",    url: "https://frontiermkts.com",       logo: "assets/logos/frontier-markets.png", scale: 1.21, theme: ["Digital Acceleration"],                industry: ["Skilling & Livelihood"] },
   { name: "5C Network",          url: "https://5cnetwork.com",          logo: "assets/logos/5c-network.png", scale: 1.04,       theme: ["AI Portfolio", "Deep Tech"],           industry: ["Healthcare", "AI"] },
-  { name: "Agnikul Cosmos",      url: "https://agnikul.in",             logo: "assets/logos/agnikul.png", scale: 1.02,          theme: ["Deep Tech"],                           industry: ["Space Tech"] },
+  { name: "Agnikul Cosmos",      url: "https://agnikul.in",             logo: "assets/logos/agnikul.png", scale: 0.87,          theme: ["Deep Tech"],                           industry: ["Space Tech"] },
   { name: "Piersight",           url: "https://piersight.space",        logo: "assets/logos/piersight.svg", scale: 0.93,        theme: ["Deep Tech"],                           industry: ["Space Tech"] },
   { name: "Galaxeye",            url: "https://galaxeye.space",         logo: "assets/logos/galaxeye.svg", scale: 1.0,         theme: ["Deep Tech"],                           industry: ["Space Tech"] },
   { name: "Sagar Defence",       url: "https://sagardefence.com",       logo: "assets/logos/sagar-defence.png", scale: 0.84,    theme: ["Deep Tech"],                           industry: ["Aerospace & Defense"] },
