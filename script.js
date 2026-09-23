@@ -4,14 +4,14 @@
 /* Bump this whenever a logo file under assets/logos/ is edited in place (recropped,
    recoloured, SVG attributes changed, etc.) so browsers that already cached the old
    bytes at this URL fetch the new version instead of reusing a stale image. */
-const ASSET_VERSION = "2026-09-23-logos-8";
+const ASSET_VERSION = "2026-09-23-logos-9";
 const withVersion = src => `${src}?v=${ASSET_VERSION}`;
 
 const COMPANIES = [
   { name: "Karta AI",            url: "https://getkarta.ai",            logo: "assets/logos/karta.png", scale: 1.09,            theme: ["Digital Acceleration", "AI Portfolio"], industry: ["Enterprise", "AI"] },
   { name: "FactriKa",            url: "https://factrika.com",           logo: "assets/logos/factrika.png", scale: 0.9,         theme: ["Digital Acceleration"],                industry: ["Digital Infrastructure"] },
   { name: "Zeny",                url: "https://zeny.co.in",             logo: "assets/logos/zeny.svg", scale: 0.87,             theme: ["Digital Acceleration", "Inclusion"],   industry: ["Fintech"] },
-  { name: "Xaults",              url: "https://xaults.com",             logo: "assets/logos/xaults.png", scale: 0.99,           theme: ["Digital Acceleration"],                industry: ["Fintech"] },
+  { name: "Xaults",              url: "https://xaults.com",             logo: "assets/logos/xaults.png", scale: 0.84,           theme: ["Digital Acceleration"],                industry: ["Fintech"] },
   { name: "NPrep",               url: "https://nprep.in",               logo: "assets/logos/nprep.png", scale: 1.0,            theme: ["Digital Acceleration"],                industry: ["Skilling & Livelihood"] },
   { name: "SarvDhan",            url: "https://sarvdhan.com",           logo: "assets/logos/sarvdhan.png", scale: 1.06,         theme: ["Digital Acceleration"],                industry: ["Fintech"] },
   { name: "Kaleidofin",          url: "https://kaleidofin.com",         logo: "assets/logos/kaleidofin.png", scale: 0.85,       theme: ["Digital Acceleration"],                industry: ["Fintech"] },
