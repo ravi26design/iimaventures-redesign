@@ -140,6 +140,11 @@
 
 .filter-count { flex: none; white-space: nowrap; }
 
+#logo-grid.logo-grid { background: var(--sage-200); }
+#logo-grid .logo-cell { background: #fff; }
+#logo-grid .logo-cell:hover, #logo-grid .logo-cell:focus-visible { background: var(--paper-200); }
+.logo-filler { background: #fff; }
+
 /* A handful of real portfolio entries have no working link on the live
    site; render them as plain (non-clickable) cells instead of guessing a URL. */
 .logo-cell--unlinked { cursor: default; }
