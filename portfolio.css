@@ -1,23 +1,113 @@
 /* IIMA Ventures — Portfolio page only.
    Extends styles.css (shared header/footer/logo-grid/tokens). Never loaded
-   by index.html, so nothing here can affect the home page. */
+   by index.html, so nothing here can affect the home page. The stories-*
+   and story-* rules below are intentionally duplicated from home.css
+   (same visual pattern) rather than shared, so this file stays fully
+   independent — editing it can never change the home page's carousel. */
 
-.hero-sub {
-  margin-top: 20px;
-  max-width: 56ch;
-  color: var(--charcoal-600);
-  font-size: 17px;
-  line-height: 1.4;
+.hero--stories { padding-top: 40px; }
+.hero--stories .hero-frame { border-top: 0; }
+.hero-stories-eyebrow { padding: 0 16px; margin-bottom: 20px; color: var(--charcoal-500); }
+@media (min-width: 1024px) { .hero-stories-eyebrow { padding: 0 24px; } }
+
+/* ---------------- Founder-stories carousel (same pattern as the home page) */
+.stories-frame {
+  margin: 0;
+  border-top: 1px solid var(--sage-200);
+  position: relative;
 }
-@media (min-width: 1024px) { .hero-sub { font-size: 18px; } }
+.stories-viewport { overflow: hidden; cursor: grab; }
+.stories-viewport:active { cursor: grabbing; }
+.stories-track {
+  display: flex;
+  transition: transform .7s var(--ease);
+  will-change: transform;
+}
+.stories-track.is-dragging { transition: none; }
+.story {
+  flex: 0 0 100%;
+  min-width: 0;
+  position: relative;
+  user-select: none;
+  background: var(--paper);
+}
+.story-media {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 56vw, 720px);
+  overflow: hidden;
+  background: var(--sage-200);
+}
+@media (min-width: 1024px) { .story-media { height: clamp(520px, 46vw, 700px); } }
+.story-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1.06);
+  transition: transform 6s linear;
+}
+.story.is-active .story-media img { transform: scale(1); }
+.story-media::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(237, 237, 237, 0) 35%, rgba(237, 237, 237, .78) 72%, var(--paper) 100%);
+}
+.story-body {
+  display: grid;
+  gap: 20px;
+  padding: 20px 24px 80px;
+}
+@media (min-width: 1024px) {
+  .story-body {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 48px;
+    align-items: end;
+    padding: 0 32px 44px;
+  }
+}
+.story-logo { display: flex; align-items: center; height: 64px; }
+.story-logo img { max-height: 44px; max-width: 240px; width: auto; object-fit: contain; }
+.story-text {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin: 0 0 20px;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+@media (min-width: 1024px) { .story-text { font-size: 40px; } }
+.story-meta { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.story-meta .body { color: var(--charcoal-600); font-size: 15px; }
+.story-meta .dot { width: 7px; height: 7px; background: var(--sage-400, #b8b9a8); }
+.story-link { color: var(--red); }
+.story-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-/* ---------------- Category tabs (replaces the Theme/Industry dropdowns) --- */
+.stories-controls {
+  position: absolute; right: 24px; bottom: 32px;
+  display: flex; align-items: center; gap: 16px;
+  z-index: 2;
+}
+@media (min-width: 1024px) { .stories-controls { right: 40px; bottom: 48px; } }
+.stories-count { color: var(--charcoal-600); font-variant-numeric: tabular-nums; }
+.stories-arrows { display: flex; gap: 4px; }
+.stories-arrow {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border: 1px solid var(--charcoal-200);
+  color: var(--charcoal-900);
+  transition: border-color .2s, color .2s, background-color .2s;
+}
+.stories-arrow:hover { border-color: var(--red); color: var(--red); }
+
+/* ---------------- Category tabs (no "All"; first tab selected by default) */
 .cat-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 28px;
   padding: 24px 12px 0;
-  border-top: 1px solid var(--sage-200);
 }
 .cat-tab {
   display: inline-flex;
@@ -29,16 +119,9 @@
   transition: color .2s var(--ease), border-color .2s var(--ease);
 }
 .cat-tab .captions { font-size: 14px; letter-spacing: 0.06em; }
-.cat-tab-count {
-  font-size: 12px;
-  color: var(--charcoal-300);
-  font-variant-numeric: tabular-nums;
-}
+.cat-tab-count { font-size: 12px; color: var(--charcoal-300); font-variant-numeric: tabular-nums; }
 .cat-tab:hover { color: var(--charcoal-900); }
-.cat-tab[aria-pressed="true"] {
-  color: var(--red);
-  border-color: var(--red);
-}
+.cat-tab[aria-pressed="true"] { color: var(--red); border-color: var(--red); }
 .cat-tab[aria-pressed="true"] .cat-tab-count { color: var(--red); opacity: .7; }
 
 .filters--simple {
@@ -53,7 +136,18 @@
 .logo-cell--unlinked { cursor: default; }
 .logo-cell--unlinked:hover img { filter: grayscale(1) contrast(1.05); opacity: .88; transform: none; }
 
+@media (max-width: 1023px) {
+  .stories-controls { position: static; justify-content: flex-end; padding: 0 24px 28px; }
+  .story-body { padding-bottom: 24px; }
+  .story-media { height: clamp(260px, 60vw, 560px); }
+}
 @media (max-width: 767px) {
+  .story-text { font-size: 24px; }
+  .story-logo { height: 48px; }
+  .story-logo img { max-height: 34px; max-width: 180px; }
   .cat-tabs { gap: 6px 20px; padding: 18px 12px 0; }
   .cat-tab .captions { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stories-track { transition: none; }
 }
