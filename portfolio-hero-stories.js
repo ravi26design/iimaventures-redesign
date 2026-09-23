@@ -28,4 +28,13 @@ const PORTFOLIO_HERO_STORIES = [
   { name: "GUVI", logo: "assets/portfolio-logos/087-guvi.png", url: "https://www.guvi.in/", image: "assets/img/home-4.jpg",
     text: "India’s first skilling platform for technology education in multiple Indian languages.",
     meta: ["Others", "Skilling & Livelihood", "Chennai"] },
+  { name: "JAI Kisan", logo: "assets/portfolio-logos/072-jai-kisan.png", url: "https://www.jai-kisan.com/", image: "assets/img/home-1.jpg",
+    text: "A rural fintech platform delivering embedded credit and financial services for India’s farmers and agri-businesses.",
+    meta: ["Digitalization", "Fintech", "Mumbai"] },
+  { name: "Tan90 Thermal Solutions", logo: "assets/portfolio-logos/058-tan90thermal.png", url: "https://www.tan90thermal.com/", image: "assets/img/home-2.jpg",
+    text: "Thermal battery technology that stores renewable energy as heat to decarbonise industrial process heating.",
+    meta: ["Climate Tech", "Energy Storage", "Bengaluru"] },
+  { name: "Kosha.ai", logo: "assets/portfolio-logos/131-kosha.png", url: "https://www.kosha.ai/", image: "assets/img/home-3.jpg",
+    text: "An AI-powered platform that continuously tests and validates enterprise cyber-defences like an autonomous red team.",
+    meta: ["Others", "Cybersecurity", "Bengaluru"] },
 ];
