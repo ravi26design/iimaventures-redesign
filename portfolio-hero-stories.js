@@ -7,7 +7,7 @@
    different natural proportions. */
 
 const PORTFOLIO_HERO_STORIES = [
-  { name: "Agnikul Cosmos", logo: "assets/portfolio-logos/062-agnikul.png", url: "https://agnikul.in/#/", image: "assets/img/home-1.jpg", scale: 1.092,
+  { name: "Agnikul Cosmos", logo: "assets/portfolio-logos/062-agnikul.png", url: "https://agnikul.in/#/", image: "assets/img/home-1.jpg", scale: 0.75,
     text: "A pioneer in India’s private space sector, building the world’s largest single-piece 3D-printed rocket engine.",
     meta: ["Deep Tech", "Space Tech", "Chennai"] },
   { name: "Unbox Robotics", logo: "assets/portfolio-logos/064-unboxrobotics.png", url: "https://unboxrobotics.com/", image: "assets/img/home-2.jpg", scale: 0.882,
