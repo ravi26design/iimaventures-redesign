@@ -12,8 +12,8 @@ const PORTFOLIO_CATEGORIES = ["Deep Tech", "Digitalization", "Climate Tech", "Ot
 const PORTFOLIO_COMPANIES = [
   { name: "Agnikul Cosmos", url: "https://agnikul.in/#/", logo: "assets/portfolio-logos/062-agnikul.png", scale: 0.55, category: "Deep Tech" },
   { name: "Astroborne", url: "", logo: "assets/portfolio-logos/166-astroborne.png", scale: 0.968, category: "Deep Tech" },
-  { name: "Bellatrix Aerospace", url: "https://bellatrix.aero/", logo: "assets/portfolio-logos/030-bellatrix-aerospace.png", scale: 0.95, category: "Deep Tech" },
-  { name: "Chara", url: "https://chara.co.in/", logo: "assets/portfolio-logos/028-chara.png", scale: 1.25, category: "Deep Tech" },
+  { name: "Bellatrix Aerospace", url: "https://bellatrix.aero/", logo: "assets/portfolio-logos/030-bellatrix-aerospace.png", scale: 1.2, category: "Deep Tech" },
+  { name: "Chara", url: "https://chara.co.in/", logo: "assets/portfolio-logos/028-chara.png", scale: 1.45, category: "Deep Tech" },
   { name: "CogniTensor", url: "https://www.cognitensor.com/", logo: "assets/portfolio-logos/096-cognitensor.png", scale: 0.95, category: "Deep Tech" },
   { name: "Ctrl Energy", url: "https://e-trnl.energy/", logo: "assets/portfolio-logos/063-e-trnl.png", scale: 0.999, category: "Deep Tech" },
   { name: "Cynlr", url: "https://www.cynlr.com/", logo: "assets/portfolio-logos/061-cynlr.png", scale: 0.85, category: "Deep Tech" },
