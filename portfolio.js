@@ -136,7 +136,7 @@
     slide.innerHTML = `
       <div class="story-media"><img src="${s.image}" alt="" draggable="false" loading="${i === 0 ? "eager" : "lazy"}" decoding="async"></div>
       <div class="story-body">
-        <div class="story-logo"><img src="${s.logo}" alt="${s.name}" draggable="false"></div>
+        <div class="story-logo" style="--s:${s.scale || 1}"><img src="${s.logo}" alt="${s.name}" draggable="false"></div>
         <div>
           <p class="story-text">${s.text}</p>
           <div class="story-meta">
