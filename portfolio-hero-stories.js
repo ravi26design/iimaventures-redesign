@@ -19,7 +19,7 @@ const PORTFOLIO_HERO_STORIES = [
   { name: "Bellatrix Aerospace", logo: "assets/portfolio-logos/030-bellatrix-aerospace.png", url: "https://bellatrix.aero/", image: "assets/img/home-4.jpg", scale: 0.847,
     text: "Building green electric and chemical propulsion systems for the next generation of satellites.",
     meta: ["Deep Tech", "Aerospace & Defense", "Bengaluru"] },
-  { name: "Riskcovry", logo: "assets/portfolio-logos/070-riskcovry.png", url: "https://riskcovry.com/", image: "assets/img/home-1.jpg", scale: 1.07,
+  { name: "Riskcovry", logo: "assets/portfolio-logos/070-riskcovry.png", url: "https://riskcovry.com/", image: "assets/img/home-1.jpg", scale: 0.72,
     text: "Insurance-as-a-service infrastructure that lets any business embed and sell insurance in minutes.",
     meta: ["Digitalization", "Fintech", "Mumbai"] },
   { name: "Frontier Markets", logo: "assets/portfolio-logos/076-frontiermkts.png", url: "https://www.frontiermkts.com/", image: "assets/img/home-2.jpg", scale: 1.0,
