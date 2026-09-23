@@ -101,17 +101,32 @@
 .stories-arrow:hover { border-color: var(--red); color: var(--red); }
 
 /* ---------------- Category tabs (no "All"; first tab selected by default) */
+.filters-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--sage-200);
+}
+.filters-row .filter-count { align-self: flex-end; margin-bottom: 10px; }
 .cat-tabs {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
   gap: 4px 28px;
-  padding: 24px 12px 0;
+  padding: 24px 0 0;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+.cat-tabs::-webkit-scrollbar { display: none; }
 .cat-tab {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 10px 2px;
+  white-space: nowrap;
   color: var(--charcoal-600);
   border-bottom: 2px solid transparent;
   transition: color .2s var(--ease), border-color .2s var(--ease);
@@ -122,12 +137,7 @@
 .cat-tab[aria-pressed="true"] { color: var(--red); border-color: var(--red); }
 .cat-tab[aria-pressed="true"] .cat-tab-count { color: var(--red); opacity: .7; }
 
-.filters--simple {
-  display: flex;
-  justify-content: flex-end;
-  padding: 14px 12px;
-  border-bottom: 1px solid var(--sage-200);
-}
+.filter-count { flex: none; white-space: nowrap; }
 
 /* A handful of real portfolio entries have no working link on the live
    site; render them as plain (non-clickable) cells instead of guessing a URL. */
@@ -143,8 +153,10 @@
   .story-text { font-size: 24px; }
   .story-logo { height: 48px; }
   .story-logo img { max-height: 34px; max-width: 180px; }
-  .cat-tabs { gap: 6px 20px; padding: 18px 12px 0; }
+  .filters-row { gap: 10px; padding: 0 12px; }
+  .cat-tabs { gap: 6px 20px; padding: 18px 0; }
   .cat-tab .captions { font-size: 13px; }
+  .filter-count { font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .stories-track { transition: none; }
