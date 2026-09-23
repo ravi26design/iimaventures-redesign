@@ -157,13 +157,8 @@
   }
   function restart() {
     clearInterval(timer);
-    frame.classList.remove("is-paused");
     if (reduceMotion) return;
     timer = setInterval(() => go(index + 1), AUTO_MS);
-  }
-  function pause() {
-    clearInterval(timer);
-    frame.classList.add("is-paused");
   }
 
   document.getElementById("stories-prev").addEventListener("click", () => { go(index - 1); restart(); });
@@ -191,8 +186,6 @@
   viewport.addEventListener("pointerup", endDrag);
   viewport.addEventListener("pointercancel", endDrag);
   viewport.addEventListener("pointerleave", endDrag);
-  viewport.addEventListener("mouseenter", pause);
-  viewport.addEventListener("mouseleave", restart);
 
   /* horizontal scroll gesture navigates; a plain vertical scroll is left
      completely alone so the page always scrolls normally under the cursor */
