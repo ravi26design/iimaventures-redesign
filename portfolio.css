@@ -73,7 +73,7 @@
   }
 }
 .story-logo { display: flex; align-items: center; height: 84px; }
-.story-logo img { max-height: calc(64px * var(--s, 1)); max-width: calc(260px * var(--s, 1)); width: auto; object-fit: contain; }
+.story-logo img { max-height: calc(64px * var(--s, 1)); max-width: 320px; width: auto; object-fit: contain; }
 .story-text {
   font-family: var(--font-display);
   font-weight: 500;
@@ -152,6 +152,12 @@
 #logo-grid.logo-grid { background: var(--sage-200); }
 #logo-grid .logo-cell { background: #fff; }
 #logo-grid .logo-cell:hover, #logo-grid .logo-cell:focus-visible { background: #fff; }
+/* The shared 76%-width cap (styles.css) throttles wide wordmark logos well
+   before they reach the shared height cap, making them render shorter than
+   compact/square logos even after scale correction. Loosen it here so
+   height is almost always the binding constraint, which is what the --s
+   scale correction below actually assumes. */
+#logo-grid .logo-cell img { max-width: 94%; }
 .logo-filler { background: #fff; }
 
 /* A handful of real portfolio entries have no working link on the live
@@ -167,7 +173,7 @@
 @media (max-width: 767px) {
   .story-text { font-size: 24px; }
   .story-logo { height: 64px; }
-  .story-logo img { max-height: calc(48px * var(--s, 1)); max-width: calc(200px * var(--s, 1)); }
+  .story-logo img { max-height: calc(48px * var(--s, 1)); max-width: 240px; }
   .filters-row { gap: 10px; padding: 0 12px; }
   .cat-tabs { gap: 6px 20px; padding: 18px 0; }
   .cat-tab .captions { font-size: 13px; }
