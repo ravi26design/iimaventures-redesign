@@ -13,7 +13,7 @@ const PORTFOLIO_HERO_STORIES = [
   { name: "Unbox Robotics", logo: "assets/portfolio-logos/064-unboxrobotics.png", url: "https://unboxrobotics.com/", image: "assets/img/home-2.jpg", scale: 0.882,
     text: "Grid-based autonomous sortation robots that cut warehouse and last-mile fulfilment costs.",
     meta: ["Deep Tech", "Robotics", "Pune"] },
-  { name: "Kaleidofin", logo: "assets/portfolio-logos/068-kaleidofin.png", url: "https://kaleidofin.com/", image: "assets/img/home-3.jpg", scale: 0.78,
+  { name: "Kaleidofin", logo: "assets/portfolio-logos/068-kaleidofin.png", url: "https://kaleidofin.com/", image: "assets/img/home-3.jpg", scale: 0.58,
     text: "AI-driven savings, credit and insurance products built for India’s informal and underserved workforce.",
     meta: ["Digitalization", "Fintech", "Chennai"] },
   { name: "Bellatrix Aerospace", logo: "assets/portfolio-logos/030-bellatrix-aerospace.png", url: "https://bellatrix.aero/", image: "assets/img/home-4.jpg", scale: 0.847,
