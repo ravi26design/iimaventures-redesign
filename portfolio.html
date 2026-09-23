@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portfolio | IIMA Ventures</title>
-  <meta name="description" content="IIMA Ventures backs founders building category-defining companies across digital acceleration, inclusion, climate, AI and deep tech.">
+  <meta name="description" content="IIMA Ventures' entrepreneurs are solving big problems across Deep Tech, Digitalization, Climate Tech and more, backed with capital and a stake.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260923d">
+  <link rel="stylesheet" href="portfolio.css?v=1">
 </head>
 <body>
   <a class="skip-link" href="#portfolio">Skip to main content</a>
@@ -54,42 +55,21 @@
       <div class="container hero-frame">
         <div class="hero-grid">
           <p class="captions hero-eyebrow reveal">Portfolio</p>
-          <h1 class="hero-title reveal">We back founders building what India needs next.</h1>
-        </div>
-        <div class="marquee" aria-hidden="true">
-          <div class="marquee-track" id="marquee-track"></div>
+          <h1 class="hero-title reveal">Our entrepreneurs are solving big problems, applying innovation for a better future.</h1>
+          <p class="body hero-sub reveal">While IIMA Ventures supports ventures across the innovation continuum, this section only captures ventures where we have provided capital and are holding a stake.</p>
         </div>
       </div>
     </section>
 
     <section class="companies" aria-label="Portfolio companies">
       <div class="container companies-frame">
-        <div class="filters" id="filters">
-          <div class="filters-left">
-            <div class="filter" data-filter="theme">
-              <button type="button" class="filter-trigger" aria-haspopup="true" aria-expanded="false">
-                <span class="captions">Theme</span>
-                <svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
-              </button>
-              <div class="filter-menu" role="group" aria-label="Filter by theme"></div>
-            </div>
-            <div class="filter" data-filter="industry">
-              <button type="button" class="filter-trigger" aria-haspopup="true" aria-expanded="false">
-                <span class="captions">Industry</span>
-                <svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
-              </button>
-              <div class="filter-menu" role="group" aria-label="Filter by industry"></div>
-            </div>
-          </div>
-          <div class="filters-right">
-            <button type="button" class="filter-clear captions" id="filter-clear" hidden>Clear</button>
-            <p class="captions filter-count" id="filter-count" aria-live="polite"></p>
-          </div>
+        <div class="cat-tabs" id="category-tabs" role="tablist" aria-label="Filter by category"></div>
+        <div class="filters filters--simple">
+          <p class="captions filter-count" id="filter-count" aria-live="polite"></p>
         </div>
-        <div class="active-chips" id="active-chips"></div>
 
         <div class="logo-grid" id="logo-grid"></div>
-        <p class="empty-state body" id="empty-state" hidden>No companies match those filters yet.</p>
+        <p class="empty-state body" id="empty-state" hidden>No companies match that filter yet.</p>
       </div>
     </section>
   </main>
@@ -151,6 +131,7 @@
   </footer>
 
   <script src="nav.js?v=20260923d"></script>
-  <script src="script.js?v=20260923d"></script>
+  <script src="portfolio-data.js?v=1"></script>
+  <script src="portfolio.js?v=1"></script>
 </body>
 </html>
