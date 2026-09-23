@@ -41,17 +41,14 @@ const STORIES = [
 
 /* ---------- stories carousel ---------- */
 (function buildStories() {
-  const AUTO_MS = 2000; /* auto-advance interval, also drives the progress-segment fill duration */
+  const AUTO_MS = 2000; /* auto-advance interval */
   const frame = document.querySelector(".stories-frame");
   const track = document.getElementById("stories-track");
-  const progress = document.getElementById("stories-progress");
   const counter = document.getElementById("stories-count");
   const viewport = document.getElementById("stories-viewport");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let index = 0;
   let timer;
-
-  frame.style.setProperty("--stories-duration", `${AUTO_MS}ms`);
 
   STORIES.forEach((s, i) => {
     const slide = document.createElement("article");
@@ -72,36 +69,12 @@ const STORIES = [
         </div>
       </div>`;
     track.appendChild(slide);
-
-    const seg = document.createElement("button");
-    seg.type = "button";
-    seg.className = "stories-seg";
-    seg.setAttribute("role", "tab");
-    seg.setAttribute("aria-label", `Go to story ${i + 1} of ${STORIES.length}: ${s.name}`);
-    seg.addEventListener("click", () => { go(i); restart(); });
-    progress.appendChild(seg);
   });
-
-  const segs = () => progress.querySelectorAll(".stories-seg");
 
   function go(i) {
     index = (i + STORIES.length) % STORIES.length;
     track.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
     track.querySelectorAll(".story").forEach((s, k) => s.classList.toggle("is-active", k === index));
-    segs().forEach((seg, k) => {
-      seg.setAttribute("aria-selected", k === index ? "true" : "false");
-      seg.dataset.state = k < index ? "done" : k === index ? "active" : "upcoming";
-      /* only the current segment fills; strip the class from every other one so a
-         segment that previously finished (animation-fill-mode: forwards) doesn't
-         stay visually stuck at 100% once it's cycled back around to "upcoming" */
-      seg.classList.remove("is-filling");
-    });
-    const activeSeg = segs()[index];
-    if (activeSeg) {
-      /* force a reflow so the fill animation restarts from 0 every time, even on repeat visits to the same slide */
-      void activeSeg.offsetWidth;
-      activeSeg.classList.add("is-filling");
-    }
     if (counter) counter.textContent = `${String(index + 1).padStart(2, "0")} / ${STORIES.length}`;
   }
   function restart() {
@@ -142,6 +115,21 @@ const STORIES = [
   viewport.addEventListener("pointerleave", endDrag);
   viewport.addEventListener("mouseenter", pause);
   viewport.addEventListener("mouseleave", restart);
+
+  /* mouse-wheel / trackpad scroll while hovering the section advances slides
+     instead of scrolling the page — one slide per gesture, with a short
+     cooldown so a single trackpad swipe doesn't skip several slides at once */
+  let wheelLocked = false;
+  viewport.addEventListener("wheel", e => {
+    e.preventDefault();
+    if (wheelLocked) return;
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (Math.abs(delta) < 8) return;
+    wheelLocked = true;
+    go(index + (delta > 0 ? 1 : -1));
+    restart();
+    setTimeout(() => { wheelLocked = false; }, 3000);
+  }, { passive: false });
 
   go(0);
   restart();

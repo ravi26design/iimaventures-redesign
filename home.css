@@ -203,42 +203,6 @@
 .story-link { color: var(--red); }
 .story-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-/* Segmented progress bar across the top of the media — one bar per slide,
-   the active one fills left-to-right in step with the auto-advance timer
-   (Stories-style), so the "how much longer / how many slides" read is
-   immediate even at 11 slides, which would be cluttered as individual dots. */
-.stories-progress {
-  position: absolute; top: 14px; left: 14px; right: 14px;
-  z-index: 2;
-  display: flex;
-  gap: 4px;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .45));
-}
-@media (min-width: 1024px) { .stories-progress { top: 20px; left: 24px; right: 24px; gap: 5px; } }
-.stories-seg {
-  position: relative;
-  flex: 1 1 0;
-  height: 2.5px;
-  background: rgba(255, 255, 255, .38);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.stories-seg::after {
-  content: "";
-  position: absolute; inset: 0;
-  width: 100%;
-  background: #fff;
-  transform-origin: left;
-  transform: scaleX(0);
-}
-.stories-seg[data-state="done"]::after { transform: scaleX(1); }
-.stories-seg[data-state="active"]::after { transform: scaleX(0); }
-.stories-seg.is-filling::after {
-  animation: stories-fill var(--stories-duration, 2000ms) linear forwards;
-}
-.stories-frame.is-paused .stories-seg.is-filling::after { animation-play-state: paused; }
-@keyframes stories-fill { to { transform: scaleX(1); } }
-
 .stories-controls {
   position: absolute; right: 24px; bottom: 32px;
   display: flex; align-items: center; gap: 16px;
