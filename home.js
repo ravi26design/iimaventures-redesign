@@ -79,13 +79,8 @@ const STORIES = [
   }
   function restart() {
     clearInterval(timer);
-    frame.classList.remove("is-paused");
     if (reduceMotion) return;
     timer = setInterval(() => go(index + 1), AUTO_MS);
-  }
-  function pause() {
-    clearInterval(timer);
-    frame.classList.add("is-paused");
   }
 
   document.getElementById("stories-prev").addEventListener("click", () => { go(index - 1); restart(); });
@@ -113,8 +108,6 @@ const STORIES = [
   viewport.addEventListener("pointerup", endDrag);
   viewport.addEventListener("pointercancel", endDrag);
   viewport.addEventListener("pointerleave", endDrag);
-  viewport.addEventListener("mouseenter", pause);
-  viewport.addEventListener("mouseleave", restart);
 
   /* a horizontal scroll gesture (trackpad swipe, shift+wheel) while hovering
      the section advances slides, with a cooldown so one swipe doesn't skip
