@@ -1,6 +1,8 @@
 /* IIMA Ventures — Home page behaviour */
 
-/* ---------- data ---------- */
+/* ---------- data ----------
+   11 founder stories, cycling through the 4 campus photos we have on hand
+   until real founder/company photography replaces them (see README). */
 const STORIES = [
   { name: "Agnikul Cosmos", logo: "assets/logos/agnikul.png", url: "https://agnikul.in", image: "assets/img/home-1.jpg",
     text: "A pioneer in India’s private space sector, building the world’s largest single-piece 3D-printed rocket engine.",
@@ -14,18 +16,42 @@ const STORIES = [
   { name: "GUVI", logo: "assets/logos/guvi.png", url: "https://guvi.in", image: "assets/img/home-3.jpg",
     text: "India’s first skilling platform for technology education in multiple Indian languages.",
     meta: ["Digital acceleration", "Skilling & livelihood", "Chennai"] },
-  { name: "Sagar Defence", logo: "assets/logos/sagar-defence.png", url: "https://sagardefence.com", image: "assets/img/home-1.jpg",
+  { name: "Kaleidofin", logo: "assets/logos/kaleidofin.png", url: "https://kaleidofin.com", image: "assets/img/home-1.jpg",
+    text: "AI-driven savings, credit and insurance products built for India’s informal and underserved workforce.",
+    meta: ["Digital acceleration", "Fintech", "Chennai"] },
+  { name: "Unbox Robotics", logo: "assets/logos/unbox.png", url: "https://unboxrobotics.com", image: "assets/img/home-2.jpg",
+    text: "Grid-based autonomous sortation robots that cut warehouse and last-mile fulfilment costs.",
+    meta: ["AI portfolio", "Robotics", "Pune"] },
+  { name: "Riskcovry", logo: "assets/logos/riskcovry.svg", url: "https://riskcovry.com", image: "assets/img/home-3.jpg",
+    text: "Insurance-as-a-service infrastructure that lets any business embed and sell insurance in minutes.",
+    meta: ["Digital acceleration", "Fintech", "Mumbai"] },
+  { name: "GalaxEye", logo: "assets/logos/galaxeye.svg", url: "https://galaxeye.space", image: "assets/img/home-4.jpg",
+    text: "Dual-sensor SAR and optical satellites delivering all-weather, day-and-night Earth imagery.",
+    meta: ["Deep tech", "Space tech", "Bengaluru"] },
+  { name: "PierSight", logo: "assets/logos/piersight.svg", url: "https://piersight.space", image: "assets/img/home-1.jpg",
+    text: "SAR satellite constellations built for round-the-clock maritime domain awareness.",
+    meta: ["Deep tech", "Space tech", "Ahmedabad"] },
+  { name: "The E-Plane Company", logo: "assets/logos/eplane.png", url: "https://eplane.ai", image: "assets/img/home-2.jpg",
+    text: "Electric flying vehicles engineered to make short-haul air mobility quiet, clean and affordable.",
+    meta: ["Deep tech", "Aerospace & defence", "Chennai"] },
+  { name: "Sagar Defence", logo: "assets/logos/sagar-defence.png", url: "https://sagardefence.com", image: "assets/img/home-4.jpg",
     text: "Advancing India’s maritime security through autonomous technology innovations.",
     meta: ["Deep tech", "Aerospace & defence", "Mumbai"] },
 ];
 
 /* ---------- stories carousel ---------- */
 (function buildStories() {
+  const AUTO_MS = 2000; /* auto-advance interval, also drives the progress-segment fill duration */
+  const frame = document.querySelector(".stories-frame");
   const track = document.getElementById("stories-track");
-  const dots = document.getElementById("stories-dots");
+  const progress = document.getElementById("stories-progress");
+  const counter = document.getElementById("stories-count");
   const viewport = document.getElementById("stories-viewport");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let index = 0;
   let timer;
+
+  frame.style.setProperty("--stories-duration", `${AUTO_MS}ms`);
 
   STORIES.forEach((s, i) => {
     const slide = document.createElement("article");
@@ -47,25 +73,46 @@ const STORIES = [
       </div>`;
     track.appendChild(slide);
 
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.className = "stories-dot";
-    dot.setAttribute("role", "tab");
-    dot.setAttribute("aria-label", `Go to story ${i + 1}`);
-    dot.addEventListener("click", () => { go(i); restart(); });
-    dots.appendChild(dot);
+    const seg = document.createElement("button");
+    seg.type = "button";
+    seg.className = "stories-seg";
+    seg.setAttribute("role", "tab");
+    seg.setAttribute("aria-label", `Go to story ${i + 1} of ${STORIES.length}: ${s.name}`);
+    seg.addEventListener("click", () => { go(i); restart(); });
+    progress.appendChild(seg);
   });
+
+  const segs = () => progress.querySelectorAll(".stories-seg");
 
   function go(i) {
     index = (i + STORIES.length) % STORIES.length;
     track.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
     track.querySelectorAll(".story").forEach((s, k) => s.classList.toggle("is-active", k === index));
-    dots.querySelectorAll(".stories-dot").forEach((d, k) => d.setAttribute("aria-selected", k === index ? "true" : "false"));
+    segs().forEach((seg, k) => {
+      seg.setAttribute("aria-selected", k === index ? "true" : "false");
+      seg.dataset.state = k < index ? "done" : k === index ? "active" : "upcoming";
+      /* only the current segment fills; strip the class from every other one so a
+         segment that previously finished (animation-fill-mode: forwards) doesn't
+         stay visually stuck at 100% once it's cycled back around to "upcoming" */
+      seg.classList.remove("is-filling");
+    });
+    const activeSeg = segs()[index];
+    if (activeSeg) {
+      /* force a reflow so the fill animation restarts from 0 every time, even on repeat visits to the same slide */
+      void activeSeg.offsetWidth;
+      activeSeg.classList.add("is-filling");
+    }
+    if (counter) counter.textContent = `${String(index + 1).padStart(2, "0")} / ${STORIES.length}`;
   }
   function restart() {
     clearInterval(timer);
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    timer = setInterval(() => go(index + 1), 2000); /* auto-advance every 2s */
+    frame.classList.remove("is-paused");
+    if (reduceMotion) return;
+    timer = setInterval(() => go(index + 1), AUTO_MS);
+  }
+  function pause() {
+    clearInterval(timer);
+    frame.classList.add("is-paused");
   }
 
   document.getElementById("stories-prev").addEventListener("click", () => { go(index - 1); restart(); });
@@ -93,7 +140,7 @@ const STORIES = [
   viewport.addEventListener("pointerup", endDrag);
   viewport.addEventListener("pointercancel", endDrag);
   viewport.addEventListener("pointerleave", endDrag);
-  viewport.addEventListener("mouseenter", () => clearInterval(timer));
+  viewport.addEventListener("mouseenter", pause);
   viewport.addEventListener("mouseleave", restart);
 
   go(0);
