@@ -25,7 +25,7 @@ const PORTFOLIO_HERO_STORIES = [
   { name: "Frontier Markets", logo: "assets/portfolio-logos/076-frontiermkts.png", url: "https://www.frontiermkts.com/", image: "assets/img/home-2.jpg", scale: 1.0,
     text: "A rural commerce network connecting underserved India to essential products and services.",
     meta: ["Digitalization", "Skilling & Livelihood", "Jaipur"] },
-  { name: "CogniTensor", logo: "assets/portfolio-logos/096-cognitensor.png", url: "https://www.cognitensor.com/", image: "assets/img/home-3.jpg", scale: 1.114,
+  { name: "CogniTensor", logo: "assets/portfolio-logos/096-cognitensor.png", url: "https://www.cognitensor.com/", image: "assets/img/home-3.jpg", scale: 0.8,
     text: "An AI company turning industrial and supply-chain data into predictive decisions.",
     meta: ["Deep Tech", "AI", "Mumbai"] },
   { name: "GUVI", logo: "assets/portfolio-logos/087-guvi.png", url: "https://www.guvi.in/", image: "assets/img/home-4.jpg", scale: 0.847,
