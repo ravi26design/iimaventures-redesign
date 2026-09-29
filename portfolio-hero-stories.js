@@ -30,7 +30,7 @@ const PORTFOLIO_HERO_STORIES = [
   { name: "Unbox Robotics", logo: "assets/portfolio-logos/064-unboxrobotics.png", url: "https://unboxrobotics.com/", image: "assets/img/unboxrobotics-hero.jpg", scale: 0.922,
     text: "India’s leading vertical robotic sortation system powered by proprietary swarm intelligence.",
     meta: ["Deep Tech", "Robotics", "Pune"] },
-  { name: "Airbound", logo: "assets/portfolio-logos/200-airbound.svg", url: "https://www.airbound.com/", image: "assets/img/airbound-hero.jpg", scale: 1.061,
+  { name: "Airbound", logo: "assets/portfolio-logos/200-airbound.svg", url: "https://www.airbound.com/", image: "assets/img/airbound-hero-2.jpg", scale: 1.061,
     text: "India’s next-generation aircraft platform, building light, intelligent aircraft that can take off and fly anywhere.",
     meta: ["Deep Tech", "Aerospace"] },
   { name: "5C Network", logo: "assets/logos/5c-network.png", url: "https://5cnetwork.com", image: "assets/img/5cnetwork-hero-2.jpg", scale: 1.0,
