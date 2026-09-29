@@ -10,7 +10,10 @@
    (container-xl) than our shared 1440px .container. Match that here, scoped
    to just the hero/companies content so the header/footer nav width stays
    consistent with the rest of the site. */
-.container.hero-frame, .container.companies-frame { max-width: 1320px; }
+.container.companies-frame { max-width: 1320px; }
+/* Hero carousel spans the full viewport width (no real-site equivalent to
+   match here — this is a standalone design choice, unlike the grid above). */
+.container.hero-frame { max-width: none; width: 100%; padding: 0; border-left: 0; border-right: 0; }
 
 /* Top-nav tabs other than Portfolio itself are inert on this page (per
    feedback) — no href, so they can't navigate away to the real site. */
