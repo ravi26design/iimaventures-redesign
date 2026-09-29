@@ -24,7 +24,7 @@ const PORTFOLIO_HERO_STORIES = [
   { name: "Nabhdrishti", logo: "assets/portfolio-logos/035-nabhdrishti.png", url: "https://www.nabhdrishti.in/", image: "assets/img/nabhdrishti-hero.jpg", scale: 1.003,
     text: "India’s first fuel-flex micro gas turbine for use in aviation & power generation.",
     meta: ["Deep Tech", "Aerospace"] },
-  { name: "Chara", logo: "assets/portfolio-logos/028-chara.png", url: "https://chara.co.in/", image: "assets/img/home-2.jpg", scale: 0.825,
+  { name: "Chara", logo: "assets/portfolio-logos/028-chara.png", url: "https://chara.co.in/", image: "assets/img/chara-hero.jpg", scale: 0.825,
     text: "India’s first rare-earth magnet-free motor technologies for next-gen drives.",
     meta: ["Deep Tech", "EV Motors"] },
   { name: "Unbox Robotics", logo: "assets/portfolio-logos/064-unboxrobotics.png", url: "https://unboxrobotics.com/", image: "assets/img/home-3.jpg", scale: 0.922,
