@@ -39,7 +39,7 @@ const PORTFOLIO_HERO_STORIES = [
   { name: "Idea Forge", logo: "assets/portfolio-logos/204-ideaforge.png", url: "https://ideaforgetech.com/", image: "assets/img/ideaforge-hero.jpg", scale: 0.932,
     text: "Pioneer & the pre-eminent market leader in the Indian unmanned aircraft systems.",
     meta: ["Deep Tech", "Aerospace", "Mumbai"] },
-  { name: "Zouk", logo: "assets/portfolio-logos/205-zouk.png", url: "http://zouk.co.in/", image: "assets/img/zouk-hero.jpg", scale: 1.061,
+  { name: "Zouk", logo: "assets/portfolio-logos/205-zouk.png", url: "http://zouk.co.in/", image: "assets/img/zouk-hero-2.jpg", scale: 1.061,
     text: "Authentic Indian brand championing sustainable, cruelty-free lifestyle products.",
     meta: ["Others", "D2C", "Bengaluru"] },
 ];
