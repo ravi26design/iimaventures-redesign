@@ -10,11 +10,10 @@
    white surface rather than exposing gray on either side. */
 body { background: #fff; }
 
-/* The real iimaventures.com/portfolio page's header and footer are full-width
-   (container-fluid), but its main content uses a narrower 1320px column
-   (container-xl) than our shared 1440px .container. Match that here, scoped
-   to just the hero/companies content so the header/footer nav width stays
-   consistent with the rest of the site. */
+/* The real iimaventures.com/portfolio page's header is full-width
+   (container-fluid, now matched by the shared header-inner), but its main
+   content uses a narrower 1320px column (container-xl) — matched here,
+   independently of the header (the real site doesn't align them either). */
 .container.companies-frame { max-width: 1320px; }
 /* Hero carousel spans the full viewport width (no real-site equivalent to
    match here — this is a standalone design choice, unlike the grid above). */
@@ -81,6 +80,8 @@ body { background: #fff; }
 @media (min-width: 1024px) {
   .story-body {
     position: absolute; left: 0; right: 0; bottom: 0;
+    max-width: 1320px;
+    margin: 0 auto;
     gap: 20px;
     align-items: start;
     padding: 0 32px 44px;
@@ -111,7 +112,7 @@ body { background: #fff; }
   display: flex; align-items: center; gap: 16px;
   z-index: 2;
 }
-@media (min-width: 1024px) { .stories-controls { right: 40px; bottom: 48px; } }
+@media (min-width: 1024px) { .stories-controls { right: max(40px, calc((100vw - 1320px) / 2 + 40px)); bottom: 48px; } }
 .stories-count { color: rgba(255, 255, 255, .8); font-variant-numeric: tabular-nums; }
 .stories-arrows { display: flex; gap: 4px; }
 .stories-arrow {
@@ -124,7 +125,7 @@ body { background: #fff; }
 .stories-arrow:hover { border-color: var(--red); color: var(--red); }
 
 /* ---------------- Theme / Industry filters (shared .filter* UI from styles.css) */
-.companies-frame { background: #fff; border-left: 0; border-right: 0; }
+.companies-frame { background: #fff; }
 .filters { background: #fff; border-top: 0; border-bottom: 0; }
 
 @media (min-width: 1280px) { #logo-grid.logo-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
