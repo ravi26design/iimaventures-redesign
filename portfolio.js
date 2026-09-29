@@ -3,38 +3,79 @@
    COMPANIES list, filters and stories carousel in script.js/home.js — this
    file never touches either). Data lives in portfolio-data.js. */
 
-/* ---------- category tabs (no "All"; first category selected by default) --- */
-(function categoryFilter() {
-  const state = { category: PORTFOLIO_CATEGORIES[0] };
+/* ---------- Theme / Industry filters (same pattern as the home page's) --- */
+(function themeIndustryFilter() {
+  const state = { theme: new Set(), industry: new Set() };
 
   const grid = document.getElementById("logo-grid");
-  const tabsEl = document.getElementById("category-tabs");
   const countEl = document.getElementById("filter-count");
+  const clearBtn = document.getElementById("filter-clear");
+  const chipsEl = document.getElementById("active-chips");
+  const emptyEl = document.getElementById("empty-state");
 
-  function countFor(cat) {
-    return PORTFOLIO_COMPANIES.filter(c => c.category === cat).length;
+  const CHECK_SVG = '<svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6.5l2.6 2.6L10 3.5"/></svg>';
+  const X_SVG = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8"/></svg>';
+
+  function countFor(key, value) {
+    const field = key === "theme" ? "category" : "industry";
+    return PORTFOLIO_COMPANIES.filter(c => c[field] === value).length;
   }
 
-  function buildTabs() {
-    PORTFOLIO_CATEGORIES.forEach(cat => {
+  function matches(company) {
+    const themeOk = state.theme.size === 0 || state.theme.has(company.category);
+    const industryOk = state.industry.size === 0 || state.industry.has(company.industry);
+    return themeOk && industryOk;
+  }
+
+  function buildMenu(key, values) {
+    const wrap = document.querySelector(`.filter[data-filter="${key}"]`);
+    const menu = wrap.querySelector(".filter-menu");
+    const trigger = wrap.querySelector(".filter-trigger");
+
+    values.forEach(value => {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "cat-tab";
-      btn.dataset.value = cat;
-      btn.innerHTML = `<span class="captions">${cat}</span><span class="cat-tab-count">${countFor(cat)}</span>`;
-      btn.setAttribute("aria-pressed", cat === state.category ? "true" : "false");
+      btn.className = "filter-option";
+      btn.setAttribute("role", "checkbox");
+      btn.setAttribute("aria-checked", "false");
+      btn.dataset.value = value;
+      btn.innerHTML = `<span class="box">${CHECK_SVG}</span><span class="label">${value}</span><span class="num">${countFor(key, value)}</span>`;
       btn.addEventListener("click", () => {
-        state.category = cat;
-        syncTabs();
+        if (state[key].has(value)) state[key].delete(value); else state[key].add(value);
+        btn.setAttribute("aria-checked", state[key].has(value) ? "true" : "false");
+        wrap.classList.toggle("has-selection", state[key].size > 0);
         render();
       });
-      tabsEl.appendChild(btn);
+      menu.appendChild(btn);
+    });
+
+    trigger.addEventListener("click", e => {
+      e.stopPropagation();
+      const open = wrap.classList.contains("is-open");
+      closeMenus();
+      if (!open) {
+        wrap.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+      }
     });
   }
 
-  function syncTabs() {
-    tabsEl.querySelectorAll(".cat-tab").forEach(btn => {
-      btn.setAttribute("aria-pressed", btn.dataset.value === state.category ? "true" : "false");
+  function closeMenus() {
+    document.querySelectorAll(".filter.is-open").forEach(f => {
+      f.classList.remove("is-open");
+      f.querySelector(".filter-trigger").setAttribute("aria-expanded", "false");
+    });
+  }
+  document.addEventListener("click", e => { if (!e.target.closest(".filter")) closeMenus(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenus(); });
+
+  function syncMenuState() {
+    document.querySelectorAll(".filter").forEach(wrap => {
+      const key = wrap.dataset.filter;
+      wrap.classList.toggle("has-selection", state[key].size > 0);
+      wrap.querySelectorAll(".filter-option").forEach(btn => {
+        btn.setAttribute("aria-checked", state[key].has(btn.dataset.value) ? "true" : "false");
+      });
     });
   }
 
@@ -93,7 +134,7 @@
   });
 
   function render() {
-    const visible = PORTFOLIO_COMPANIES.filter(c => c.category === state.category);
+    const visible = PORTFOLIO_COMPANIES.filter(matches);
 
     grid.innerHTML = "";
     visible.forEach((c, i) => {
@@ -110,9 +151,41 @@
 
     const n = visible.length;
     countEl.textContent = `${n} ${n === 1 ? "company" : "companies"} shown`;
+    emptyEl.hidden = n > 0;
+
+    const anyFilter = state.theme.size + state.industry.size > 0;
+    clearBtn.hidden = !anyFilter;
+    renderChips();
   }
 
-  buildTabs();
+  function renderChips() {
+    chipsEl.innerHTML = "";
+    ["theme", "industry"].forEach(key => {
+      state[key].forEach(value => {
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "chip";
+        chip.innerHTML = `${value}${X_SVG}`;
+        chip.setAttribute("aria-label", `Remove ${value} filter`);
+        chip.addEventListener("click", () => {
+          state[key].delete(value);
+          syncMenuState();
+          render();
+        });
+        chipsEl.appendChild(chip);
+      });
+    });
+  }
+
+  clearBtn.addEventListener("click", () => {
+    state.theme.clear();
+    state.industry.clear();
+    syncMenuState();
+    render();
+  });
+
+  buildMenu("theme", PORTFOLIO_CATEGORIES);
+  buildMenu("industry", PORTFOLIO_INDUSTRIES);
   render();
 })();
 

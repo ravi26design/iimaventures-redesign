@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260923d">
-  <link rel="stylesheet" href="portfolio.css?v=15">
+  <link rel="stylesheet" href="portfolio.css?v=16">
 </head>
 <body>
   <a class="skip-link" href="#portfolio">Skip to main content</a>
@@ -74,12 +74,32 @@
 
     <section class="companies" aria-label="Portfolio companies">
       <div class="container companies-frame">
-        <div class="filters-row">
-          <div class="cat-tabs" id="category-tabs" role="tablist" aria-label="Filter by category"></div>
-          <p class="captions filter-count" id="filter-count" aria-live="polite"></p>
+        <div class="filters" id="filters">
+          <div class="filters-left">
+            <div class="filter" data-filter="theme">
+              <button type="button" class="filter-trigger" aria-haspopup="true" aria-expanded="false">
+                <span class="captions">Theme</span>
+                <svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+              </button>
+              <div class="filter-menu" role="group" aria-label="Filter by theme"></div>
+            </div>
+            <div class="filter" data-filter="industry">
+              <button type="button" class="filter-trigger" aria-haspopup="true" aria-expanded="false">
+                <span class="captions">Industry</span>
+                <svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+              </button>
+              <div class="filter-menu" role="group" aria-label="Filter by industry"></div>
+            </div>
+          </div>
+          <div class="filters-right">
+            <button type="button" class="filter-clear captions" id="filter-clear" hidden>Clear</button>
+            <p class="captions filter-count" id="filter-count" aria-live="polite"></p>
+          </div>
         </div>
+        <div class="active-chips" id="active-chips"></div>
 
         <div class="logo-grid" id="logo-grid"></div>
+        <p class="empty-state body" id="empty-state" hidden>No companies match those filters yet.</p>
       </div>
     </section>
   </main>
@@ -141,8 +161,8 @@
   </footer>
 
   <script src="nav.js?v=20260923d"></script>
-  <script src="portfolio-data.js?v=14"></script>
+  <script src="portfolio-data.js?v=15"></script>
   <script src="portfolio-hero-stories.js?v=14"></script>
-  <script src="portfolio.js?v=6"></script>
+  <script src="portfolio.js?v=7"></script>
 </body>
 </html>
