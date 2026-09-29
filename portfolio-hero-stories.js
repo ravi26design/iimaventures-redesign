@@ -12,7 +12,7 @@ const PORTFOLIO_HERO_STORIES = [
   { name: "IIMA Ventures", logo: "", url: "", image: "assets/img/home-1.jpg", scale: 0.919,
     text: "Partner to many of India’s iconic 0 → 1 journeys.",
     meta: ["IIMA Ventures", "Innovation Continuum", "Ahmedabad"] },
-  { name: "Razorpay", logo: "assets/portfolio-logos/201-razorpay.png", url: "https://razorpay.com/", image: "assets/img/home-2.jpg", scale: 1.061,
+  { name: "Razorpay", logo: "assets/portfolio-logos/201-razorpay.png", url: "https://razorpay.com/", image: "assets/img/home-2.jpg", scale: 0.75,
     text: "India’s only full-stack financial solutions company for businesses.",
     meta: ["Digitalization", "Fintech", "Bengaluru"] },
   { name: "Agnikul Cosmos", logo: "assets/portfolio-logos/062-agnikul.png", url: "https://agnikul.in/#/", image: "assets/img/home-3.jpg", scale: 1.156,
