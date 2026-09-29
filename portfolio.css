@@ -114,7 +114,8 @@
 
 @media (min-width: 1280px) { #logo-grid.logo-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 #logo-grid.logo-grid { background: var(--sage-200); }
-#logo-grid .logo-cell { background: #fff; }
+#logo-grid .logo-cell { background: #fff; padding: 0 20px; min-height: 120px; }
+@media (min-width: 1024px) { #logo-grid .logo-cell { min-height: 150px; } }
 #logo-grid .logo-cell:hover, #logo-grid .logo-cell:focus-visible { background: #fff; }
 /* The shared 76%-width cap (styles.css) throttles wide wordmark logos well
    before they reach the shared height cap, making them render shorter than
@@ -122,7 +123,8 @@
    height is almost always the binding constraint, which is what the --s
    scale correction below actually assumes. */
 #logo-grid .logo-cell img { max-width: 94%; }
-.logo-filler { background: #fff; }
+.logo-filler { background: #fff; min-height: 120px; }
+@media (min-width: 1024px) { .logo-filler { min-height: 150px; } }
 
 /* A handful of real portfolio entries have no working link on the live
    site; render them as plain (non-clickable) cells instead of guessing a URL. */
