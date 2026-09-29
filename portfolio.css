@@ -124,7 +124,7 @@ body { background: #fff; }
 .stories-arrow:hover { border-color: var(--red); color: var(--red); }
 
 /* ---------------- Theme / Industry filters (shared .filter* UI from styles.css) */
-.companies-frame { background: #fff; }
+.companies-frame { background: #fff; border-left: 0; border-right: 0; }
 .filters { background: #fff; border-top: 0; border-bottom: 0; }
 
 @media (min-width: 1280px) { #logo-grid.logo-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
