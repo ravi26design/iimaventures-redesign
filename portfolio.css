@@ -150,6 +150,7 @@
 
 .filter-count { flex: none; white-space: nowrap; }
 
+@media (min-width: 1280px) { #logo-grid.logo-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 #logo-grid.logo-grid { background: var(--sage-200); }
 #logo-grid .logo-cell { background: #fff; }
 #logo-grid .logo-cell:hover, #logo-grid .logo-cell:focus-visible { background: #fff; }
