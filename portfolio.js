@@ -202,7 +202,7 @@
     slide.setAttribute("aria-roledescription", "slide");
     slide.setAttribute("aria-label", `${i + 1} of ${PORTFOLIO_HERO_STORIES.length}`);
     slide.innerHTML = `
-      <div class="story-media"><img src="${s.image}" alt="" draggable="false" loading="${i === 0 ? "eager" : "lazy"}" decoding="async"></div>
+      <div class="story-media"><img src="${s.image}" alt="" draggable="false" loading="${i === 0 ? "eager" : "lazy"}" decoding="async"${s.imgPos ? ` style="object-position:${s.imgPos}"` : ""}></div>
       <div class="story-body">
         ${s.logo ? `<div class="story-logo" style="--s:${s.scale || 1}"><img src="${s.logo}" alt="${s.name}" draggable="false"></div>` : ""}
         <div>
