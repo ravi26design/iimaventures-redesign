@@ -118,7 +118,7 @@
 
 /* ---------- hero founder-stories carousel (same pattern as the home page's) --- */
 (function buildHeroStories() {
-  const AUTO_MS = 2000;
+  const AUTO_MS = 3500;
   const frame = document.querySelector(".stories-frame");
   const track = document.getElementById("stories-track");
   const counter = document.getElementById("stories-count");
