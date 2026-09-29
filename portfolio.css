@@ -84,7 +84,7 @@ body { background: #fff; }
     margin: 0 auto;
     gap: 20px;
     align-items: start;
-    padding: 0 32px 44px;
+    padding: 0 0 44px;
   }
 }
 .story-logo { display: flex; align-items: center; height: 84px; }
@@ -112,7 +112,7 @@ body { background: #fff; }
   display: flex; align-items: center; gap: 16px;
   z-index: 2;
 }
-@media (min-width: 1024px) { .stories-controls { right: max(40px, calc((100vw - 1320px) / 2 + 40px)); bottom: 48px; } }
+@media (min-width: 1024px) { .stories-controls { right: max(24px, calc((100vw - 1320px) / 2)); bottom: 48px; } }
 .stories-count { color: rgba(255, 255, 255, .8); font-variant-numeric: tabular-nums; }
 .stories-arrows { display: flex; gap: 4px; }
 .stories-arrow {

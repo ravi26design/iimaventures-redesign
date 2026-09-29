@@ -96,13 +96,15 @@ ul { list-style: none; margin: 0; padding: 0; }
   justify-content: space-between;
   gap: 24px;
   height: var(--header-h);
-  /* The header bar itself spans the full viewport (matching the real
-     site's fluid container-fluid), but its content (logo/nav) is inset
-     to the same 1320px column as the rest of the page's content, rather
-     than floating flush against the viewport edge on wide screens. */
-  max-width: 1320px;
+  /* The real site's header content isn't inset to its 1320px content
+     column at all — measured directly on iimaventures.com, the logo
+     sits ~50-70px from the viewport edge regardless of viewport width,
+     while the main content container stays a fixed, centered 1320px box.
+     The two aren't aligned there, so we don't force them to align here
+     either — just match the header's own ~70px edge padding. */
+  max-width: none;
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
 }
 @media (min-width: 1024px) { .header-inner { padding: 0 72px; } }
 .brand { display: flex; flex-direction: column; align-items: center; gap: 2px; }
