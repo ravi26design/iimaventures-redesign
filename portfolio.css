@@ -5,6 +5,13 @@
    (same visual pattern) rather than shared, so this file stays fully
    independent — editing it can never change the home page's carousel. */
 
+/* The real iimaventures.com/portfolio page's header and footer are full-width
+   (container-fluid), but its main content uses a narrower 1320px column
+   (container-xl) than our shared 1440px .container. Match that here, scoped
+   to just the hero/companies content so the header/footer nav width stays
+   consistent with the rest of the site. */
+.container.hero-frame, .container.companies-frame { max-width: 1320px; }
+
 /* Top-nav tabs other than Portfolio itself are inert on this page (per
    feedback) — no href, so they can't navigate away to the real site. */
 .nav-link[aria-disabled="true"], .btn-support[aria-disabled="true"] {
