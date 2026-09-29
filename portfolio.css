@@ -5,6 +5,11 @@
    (same visual pattern) rather than shared, so this file stays fully
    independent — editing it can never change the home page's carousel. */
 
+/* Page background: white instead of the shared paper-gray, so the area
+   outside the (now narrower) companies-frame reads as one continuous
+   white surface rather than exposing gray on either side. */
+body { background: #fff; }
+
 /* The real iimaventures.com/portfolio page's header and footer are full-width
    (container-fluid), but its main content uses a narrower 1320px column
    (container-xl) than our shared 1440px .container. Match that here, scoped
@@ -120,7 +125,7 @@
 
 /* ---------------- Theme / Industry filters (shared .filter* UI from styles.css) */
 .companies-frame { background: #fff; }
-.filters { background: #fff; }
+.filters { background: #fff; border-bottom: 0; }
 
 @media (min-width: 1280px) { #logo-grid.logo-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 #logo-grid.logo-grid { background: var(--sage-200); }
