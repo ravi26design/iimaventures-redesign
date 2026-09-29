@@ -8,7 +8,6 @@
   const state = { theme: new Set(), industry: new Set() };
 
   const grid = document.getElementById("logo-grid");
-  const countEl = document.getElementById("filter-count");
   const clearBtn = document.getElementById("filter-clear");
   const chipsEl = document.getElementById("active-chips");
   const emptyEl = document.getElementById("empty-state");
@@ -133,8 +132,12 @@
     resizeTimer = setTimeout(() => padGrid(grid.querySelectorAll(".logo-cell").length), 120);
   });
 
+  const DEFAULT_LIMIT = 36;
+
   function render() {
-    const visible = PORTFOLIO_COMPANIES.filter(matches);
+    const anyFilterActive = state.theme.size + state.industry.size > 0;
+    const matched = PORTFOLIO_COMPANIES.filter(matches);
+    const visible = anyFilterActive ? matched : matched.slice(0, DEFAULT_LIMIT);
 
     grid.innerHTML = "";
     visible.forEach((c, i) => {
@@ -149,12 +152,8 @@
       grid.querySelectorAll(".logo-cell:not(.is-visible)").forEach(el => el.classList.add("is-visible"));
     }, 900);
 
-    const n = visible.length;
-    countEl.textContent = `${n} ${n === 1 ? "company" : "companies"} shown`;
-    emptyEl.hidden = n > 0;
-
-    const anyFilter = state.theme.size + state.industry.size > 0;
-    clearBtn.hidden = !anyFilter;
+    emptyEl.hidden = visible.length > 0;
+    clearBtn.hidden = !anyFilterActive;
     renderChips();
   }
 
@@ -191,15 +190,11 @@
 
 /* ---------- hero founder-stories carousel (same pattern as the home page's) --- */
 (function buildHeroStories() {
-  const AUTO_MS = 3500;
   const frame = document.querySelector(".stories-frame");
   const track = document.getElementById("stories-track");
-  const counter = document.getElementById("stories-count");
   const viewport = document.getElementById("stories-viewport");
   if (!frame || !track) return;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let index = 0;
-  let timer;
 
   PORTFOLIO_HERO_STORIES.forEach((s, i) => {
     const slide = document.createElement("article");
@@ -209,14 +204,9 @@
     slide.innerHTML = `
       <div class="story-media"><img src="${s.image}" alt="" draggable="false" loading="${i === 0 ? "eager" : "lazy"}" decoding="async"></div>
       <div class="story-body">
-        <div class="story-logo" style="--s:${s.scale || 1}"><img src="${s.logo}" alt="${s.name}" draggable="false"></div>
+        ${s.logo ? `<div class="story-logo" style="--s:${s.scale || 1}"><img src="${s.logo}" alt="${s.name}" draggable="false"></div>` : ""}
         <div>
           <p class="story-text">${s.text}</p>
-          <div class="story-meta">
-            ${s.meta.map(m => `<span class="body">${m}</span>`).join('<span class="dot" aria-hidden="true"></span>')}
-            <span class="dot" aria-hidden="true"></span>
-            ${s.url ? `<a class="story-link body" href="${s.url}" target="_blank" rel="noopener">Visit ${s.name}</a>` : ""}
-          </div>
         </div>
       </div>`;
     track.appendChild(slide);
@@ -226,16 +216,10 @@
     index = (i + PORTFOLIO_HERO_STORIES.length) % PORTFOLIO_HERO_STORIES.length;
     track.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
     track.querySelectorAll(".story").forEach((s, k) => s.classList.toggle("is-active", k === index));
-    if (counter) counter.textContent = `${String(index + 1).padStart(2, "0")} / ${PORTFOLIO_HERO_STORIES.length}`;
-  }
-  function restart() {
-    clearInterval(timer);
-    if (reduceMotion) return;
-    timer = setInterval(() => go(index + 1), AUTO_MS);
   }
 
-  document.getElementById("stories-prev").addEventListener("click", () => { go(index - 1); restart(); });
-  document.getElementById("stories-next").addEventListener("click", () => { go(index + 1); restart(); });
+  document.getElementById("stories-prev").addEventListener("click", () => { go(index - 1); });
+  document.getElementById("stories-next").addEventListener("click", () => { go(index + 1); });
 
   /* pointer drag */
   let startX = 0, dx = 0, dragging = false;
@@ -254,7 +238,6 @@
     dragging = false;
     track.classList.remove("is-dragging");
     if (Math.abs(dx) > 60) go(index + (dx < 0 ? 1 : -1)); else go(index);
-    restart();
   };
   viewport.addEventListener("pointerup", endDrag);
   viewport.addEventListener("pointercancel", endDrag);
@@ -270,12 +253,10 @@
     if (Math.abs(e.deltaX) < 8) return;
     wheelLocked = true;
     go(index + (e.deltaX > 0 ? 1 : -1));
-    restart();
     setTimeout(() => { wheelLocked = false; }, 3000);
   }, { passive: false });
 
   go(0);
-  restart();
 })();
 
 /* ---------- footer year ---------- */

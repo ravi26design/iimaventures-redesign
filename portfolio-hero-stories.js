@@ -9,7 +9,7 @@
    very different natural proportions. */
 
 const PORTFOLIO_HERO_STORIES = [
-  { name: "IIMA Ventures", logo: "assets/iima-ventures-logo.png", url: "", image: "assets/img/home-1.jpg", scale: 0.919,
+  { name: "IIMA Ventures", logo: "", url: "", image: "assets/img/home-1.jpg", scale: 0.919,
     text: "Partner to many of India’s iconic 0 → 1 journeys.",
     meta: ["IIMA Ventures", "Innovation Continuum", "Ahmedabad"] },
   { name: "Razorpay", logo: "assets/portfolio-logos/201-razorpay.png", url: "https://razorpay.com/", image: "assets/img/home-2.jpg", scale: 1.061,
