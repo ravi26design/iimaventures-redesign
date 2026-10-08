@@ -16,12 +16,12 @@
   const X_SVG = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8"/></svg>';
 
   function countFor(key, value) {
-    const field = key === "theme" ? "category" : "industry";
-    return PORTFOLIO_COMPANIES.filter(c => c[field] === value).length;
+    if (key === "theme") return PORTFOLIO_COMPANIES.filter(c => c.themes.includes(value)).length;
+    return PORTFOLIO_COMPANIES.filter(c => c.industry === value).length;
   }
 
   function matches(company) {
-    const themeOk = state.theme.size === 0 || state.theme.has(company.category);
+    const themeOk = state.theme.size === 0 || company.themes.some(t => state.theme.has(t));
     const industryOk = state.industry.size === 0 || state.industry.has(company.industry);
     return themeOk && industryOk;
   }
@@ -132,12 +132,9 @@
     resizeTimer = setTimeout(() => padGrid(grid.querySelectorAll(".logo-cell").length), 120);
   });
 
-  const DEFAULT_LIMIT = 36;
-
   function render() {
     const anyFilterActive = state.theme.size + state.industry.size > 0;
-    const matched = PORTFOLIO_COMPANIES.filter(matches);
-    const visible = anyFilterActive ? matched : matched.slice(0, DEFAULT_LIMIT);
+    const visible = PORTFOLIO_COMPANIES.filter(matches);
 
     grid.innerHTML = "";
     visible.forEach((c, i) => {
@@ -183,7 +180,7 @@
     render();
   });
 
-  buildMenu("theme", PORTFOLIO_CATEGORIES);
+  buildMenu("theme", PORTFOLIO_THEMES);
   buildMenu("industry", PORTFOLIO_INDUSTRIES);
   render();
 })();

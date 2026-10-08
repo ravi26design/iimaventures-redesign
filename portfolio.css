@@ -131,6 +131,9 @@ body { background: #fff; }
 /* ---------------- Theme / Industry filters (shared .filter* UI from styles.css) */
 .companies-frame { background: #fff; }
 .filters { background: #fff; border-top: 0; border-bottom: 0; }
+/* The sheet's industry labels are long ("Learning, Skilling & Livelihoods"),
+   so give the menus room instead of wrapping every option to two lines. */
+.filter-menu { min-width: min(340px, calc(100vw - 32px)); max-height: 70vh; overflow-y: auto; }
 
 @media (min-width: 1280px) { #logo-grid.logo-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 #logo-grid.logo-grid { background: var(--sage-200); }
