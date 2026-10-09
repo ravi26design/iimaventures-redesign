@@ -15,11 +15,6 @@
   const CHECK_SVG = '<svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6.5l2.6 2.6L10 3.5"/></svg>';
   const X_SVG = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8"/></svg>';
 
-  function countFor(key, value) {
-    if (key === "theme") return PORTFOLIO_COMPANIES.filter(c => c.themes.includes(value)).length;
-    return PORTFOLIO_COMPANIES.filter(c => c.industry === value).length;
-  }
-
   function matches(company) {
     const themeOk = state.theme.size === 0 || company.themes.some(t => state.theme.has(t));
     const industryOk = state.industry.size === 0 || state.industry.has(company.industry);
@@ -38,7 +33,7 @@
       btn.setAttribute("role", "checkbox");
       btn.setAttribute("aria-checked", "false");
       btn.dataset.value = value;
-      btn.innerHTML = `<span class="box">${CHECK_SVG}</span><span class="label">${value}</span><span class="num">${countFor(key, value)}</span>`;
+      btn.innerHTML = `<span class="box">${CHECK_SVG}</span><span class="label">${value}</span>`;
       btn.addEventListener("click", () => {
         if (state[key].has(value)) state[key].delete(value); else state[key].add(value);
         btn.setAttribute("aria-checked", state[key].has(value) ? "true" : "false");
