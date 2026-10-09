@@ -6,17 +6,17 @@
    they read on the white grid). `scale` is a per-logo size correction so
    they read at a similar visual size. */
 
-const PORTFOLIO_THEMES = ["Deep Tech", "Digital Acceleration", "Inclusion", "Climate & Sustainability", "Consumer"];
-const PORTFOLIO_INDUSTRIES = ["Financial Inclusion & Fintech", "Aerospace & Defence", "Robotics & Autonomous Systems", "Advanced Materials", "Enterprise Tech", "Space & Satellite (Space 2.0)", "Climate Tech, Energy & Storage", "Mobility & Automotive Tech", "Medtech & Medical devices", "Semiconductors", "Health & Wellbeing", "Learning, Skilling & Livelihoods", "Agri & Rural Value Chains", "Advanced Manufacturing", "AI Infrastructure & Frontier AI", "Life Sciences & Biotech", "Consumer", "Circularity & Resources"];
+const PORTFOLIO_THEMES = ["Deep Tech", "Digital Acceleration", "Climate & Sustainability", "Consumer"];
+const PORTFOLIO_INDUSTRIES = ["Robotics & Autonomous Systems", "Financial Inclusion & Fintech", "Semiconductors", "Aerospace & Defence", "Climate Tech, Energy & Storage", "Health & Wellbeing", "Mobility & Automotive Tech", "Advanced Materials", "Learning, Skilling & Livelihoods", "Agri & Rural Value Chains", "Medtech & Medical devices", "Enterprise Tech", "Advanced Manufacturing", "AI Infrastructure & Frontier AI", "Space & Satellite (Space 2.0)", "Life Sciences & Biotech", "Consumer", "Applied AI", "Circularity & Resources", "Commerce", "Climate Intelligence", "Agrifood Tech"];
 
 const PORTFOLIO_COMPANIES = [
   { name: "NeuralZome", url: "https://neuralzome.com/", logo: "assets/portfolio-logos/300-neuralzome.png", scale: 1.691, themes: ["Deep Tech"], industry: "Robotics & Autonomous Systems" },
-  { name: "Kaleidofin", url: "https://kaleidofin.com/", logo: "assets/portfolio-logos/068-kaleidofin.png", scale: 0.693, themes: ["Digital Acceleration", "Inclusion"], industry: "Financial Inclusion & Fintech" },
-  { name: "Oolka", url: "https://oolka.in/", logo: "assets/portfolio-logos/301-oolka.png", scale: 1.675, themes: ["Digital Acceleration", "Inclusion"], industry: "Financial Inclusion & Fintech" },
+  { name: "Kaleidofin", url: "https://kaleidofin.com/", logo: "assets/portfolio-logos/068-kaleidofin.png", scale: 0.693, themes: ["Digital Acceleration"], industry: "Financial Inclusion & Fintech" },
+  { name: "Oolka", url: "https://oolka.in/", logo: "assets/portfolio-logos/301-oolka.png", scale: 1.675, themes: ["Digital Acceleration"], industry: "Financial Inclusion & Fintech" },
   { name: "Morphing Machines", url: "https://www.morphing.in/", logo: "assets/portfolio-logos/019-morphing.png", scale: 1.612, themes: ["Deep Tech"], industry: "Semiconductors" },
   { name: "NabhDrishti Aerospace", url: "https://www.nabhdrishti.in/", logo: "assets/portfolio-logos/035-nabhdrishti.png", scale: 1.099, themes: ["Deep Tech"], industry: "Aerospace & Defence" },
-  { name: "Finarkein", url: "https://finarkein.com/", logo: "assets/portfolio-logos/084-finarkein.png", scale: 1.335, themes: ["Digital Acceleration", "Inclusion"], industry: "Financial Inclusion & Fintech" },
-  { name: "Jai Kisan", url: "https://www.jai-kisan.com/", logo: "assets/portfolio-logos/072-jai-kisan.png", scale: 0.908, themes: ["Digital Acceleration", "Inclusion"], industry: "Financial Inclusion & Fintech" },
+  { name: "Finarkein", url: "https://finarkein.com/", logo: "assets/portfolio-logos/084-finarkein.png", scale: 1.335, themes: ["Digital Acceleration"], industry: "Financial Inclusion & Fintech" },
+  { name: "Jai Kisan", url: "https://www.jai-kisan.com/", logo: "assets/portfolio-logos/072-jai-kisan.png", scale: 0.908, themes: ["Digital Acceleration"], industry: "Financial Inclusion & Fintech" },
   { name: "eTrnl Energy", url: "https://e-trnl.energy/", logo: "assets/portfolio-logos/063-e-trnl.png", scale: 1.437, themes: ["Deep Tech", "Climate & Sustainability"], industry: "Climate Tech, Energy & Storage" },
   { name: "Airbound", url: "https://www.airbound.com/", logo: "assets/portfolio-logos/317-airbound.svg", scale: 1.172, themes: ["Deep Tech"], industry: "Aerospace & Defence" },
   { name: "Butterfly Learning", url: "https://www.butterflylearnings.com/", logo: "assets/portfolio-logos/099-butterflylearnings.png", scale: 1.411, themes: ["Digital Acceleration"], industry: "Health & Wellbeing" },
@@ -25,7 +25,7 @@ const PORTFOLIO_COMPANIES = [
   { name: "The E-Plane Company", url: "https://eplane.ai/", logo: "assets/portfolio-logos/025-eplane.png", scale: 1.358, themes: ["Deep Tech"], industry: "Aerospace & Defence" },
   { name: "Unbox Robotics", url: "https://unboxrobotics.com/", logo: "assets/portfolio-logos/064-unboxrobotics.png", scale: 1.243, themes: ["Deep Tech"], industry: "Robotics & Autonomous Systems" },
   { name: "Ants Ceramics", url: "https://antsceramics.com/", logo: "assets/portfolio-logos/302-ants.png", scale: 1.267, themes: ["Deep Tech"], industry: "Advanced Materials" },
-  { name: "GUVI", url: "https://www.guvi.in/", logo: "assets/portfolio-logos/087-guvi.png", scale: 1.604, themes: ["Digital Acceleration", "Inclusion"], industry: "Learning, Skilling & Livelihoods" },
+  { name: "GUVI", url: "https://www.guvi.in/", logo: "assets/portfolio-logos/087-guvi.png", scale: 1.604, themes: ["Digital Acceleration"], industry: "Learning, Skilling & Livelihoods" },
   { name: "Barrix Agro Sciences", url: "https://barrix.in/", logo: "assets/portfolio-logos/303-barrix.svg", scale: 1.541, themes: ["Deep Tech", "Climate & Sustainability"], industry: "Agri & Rural Value Chains" },
   { name: "Biosense", url: "https://www.biosense.in/", logo: "assets/portfolio-logos/304-biosense.png", scale: 1.173, themes: ["Deep Tech"], industry: "Medtech & Medical devices" },
   { name: "Ridlr", url: "https://ridlr.in/", logo: "assets/portfolio-logos/305-ridlr.png", scale: 1.182, themes: ["Digital Acceleration"], industry: "Mobility & Automotive Tech" },
