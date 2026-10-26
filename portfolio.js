@@ -156,8 +156,9 @@
         const chip = document.createElement("button");
         chip.type = "button";
         chip.className = "chip";
-        chip.innerHTML = `${value}${X_SVG}`;
-        chip.setAttribute("aria-label", `Remove ${value} filter`);
+        const kind = key === "theme" ? "Theme" : "Industry";
+        chip.innerHTML = `<span class="chip-kind">${kind}</span><span class="chip-value">${value}</span>${X_SVG}`;
+        chip.setAttribute("aria-label", `Remove ${kind} filter: ${value}`);
         chip.addEventListener("click", () => {
           state[key].delete(value);
           syncMenuState();
